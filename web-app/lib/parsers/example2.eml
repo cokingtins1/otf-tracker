@@ -1,0 +1,1609 @@
+Delivered-To: seancokingtin@gmail.com
+Received: by 2002:a05:7010:cf08:b0:203:443c:3233 with SMTP id kv8csp149012mdb;
+        Mon, 31 Jan 2022 14:14:07 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxUGNpBNw/zD0atDKc375dBrbCpaNhwTRev6keroRBh4E4BalYXMSBDHvtb7LsF9U9MOcy+
+X-Received: by 2002:ac8:754f:: with SMTP id b15mr16721837qtr.546.1643667247595;
+        Mon, 31 Jan 2022 14:14:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1643667247; cv=none;
+        d=google.com; s=arc-20160816;
+        b=DgO/pfaKd1CpyFXLqQIVfPVvTCWOFdwAYJJQFLEtZHsEOTtjNM0oiuompcxvEtyt1c
+         suHYl7XcAluEIrn/EHJLZ0+d3e+HS0BI48fEO0jjMCYkoMn1eQGM11hBx8Bk8pabQMIZ
+         YQwkHoojwCDgcaY0uAVzafeW4CsjgRFi1UA6/7q2EYkT+N6wQfxMj2MnF1OLWQmOA9pJ
+         Eku6UpDM9qiGdqwN1s9nL9JixbA3G39Sh+5dp7XaRWWGCX0MqYa5+dXGz9eDzApuK1b+
+         hIAjNFuT3EJrT/fSgljTFBQto5kYRpFpICIe50KA8musjYSIFN9hTQMLXgysECsiWMpU
+         P1yg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:message-id:mime-version:list-unsubscribe
+         :content-language:accept-language:subject:from:to:dkim-signature
+         :dkim-signature;
+        bh=E0pLV+ewAzjcLIYivJnn3VDzi09gjpfJ64B5z3mEW58=;
+        b=oXAH8L4BmVqNqRV9eJSd/S+VtIqhComyZyO5FqrStiWBQ3qTa8jXps04QMGbbHZe/C
+         7z6IB2TrUAgG6j5igCoowO6GWcHaxx1NUO3UsIxQhoVzG1u6lFHiEUkN8vlvwyW8r4ub
+         hYCqlukp2rDgn2rvfIDpUleoWymqmICZp7ymbs6lNxW7v3T6lEbuQHlR5q3cwD1+VmZD
+         fxssqyXwx4Dz83k8v7HxAps7hbraW1RcbYHi2Sj+Yq0GST6g/1JwALPoyQhgLI6DbnBS
+         txd77MPF81KrekglU0nltlMZdAXlTmYwZTJ01fAz2DVdVou7VOGsi0Jta45+nivYsfnd
+         yB3Q==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@orangetheoryfitness.com header.s=llcybzkryy34ze7yxtmiui5q6ecettvh header.b=wsaODojG;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=L2XBUeQt;
+       spf=pass (google.com: domain of 0100017eb233d010-27bdca1c-fdc9-4f43-adb0-372b766e356b-000000@otbeat.orangetheoryfitness.com designates 23.249.217.21 as permitted sender) smtp.mailfrom=0100017eb233d010-27bdca1c-fdc9-4f43-adb0-372b766e356b-000000@otbeat.orangetheoryfitness.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=orangetheoryfitness.com
+Return-Path: <0100017eb233d010-27bdca1c-fdc9-4f43-adb0-372b766e356b-000000@otbeat.orangetheoryfitness.com>
+Received: from d217-21.smtp-out.amazonses.com (d217-21.smtp-out.amazonses.com. [23.249.217.21])
+        by mx.google.com with ESMTPS id j11si14170421qkp.527.2022.01.31.14.14.07
+        for <seancokingtin@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 31 Jan 2022 14:14:07 -0800 (PST)
+Received-SPF: pass (google.com: domain of 0100017eb233d010-27bdca1c-fdc9-4f43-adb0-372b766e356b-000000@otbeat.orangetheoryfitness.com designates 23.249.217.21 as permitted sender) client-ip=23.249.217.21;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@orangetheoryfitness.com header.s=llcybzkryy34ze7yxtmiui5q6ecettvh header.b=wsaODojG;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=L2XBUeQt;
+       spf=pass (google.com: domain of 0100017eb233d010-27bdca1c-fdc9-4f43-adb0-372b766e356b-000000@otbeat.orangetheoryfitness.com designates 23.249.217.21 as permitted sender) smtp.mailfrom=0100017eb233d010-27bdca1c-fdc9-4f43-adb0-372b766e356b-000000@otbeat.orangetheoryfitness.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=orangetheoryfitness.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=llcybzkryy34ze7yxtmiui5q6ecettvh; d=orangetheoryfitness.com;
+	t=1643667247;
+	h=Content-Type:To:From:Subject:List-Unsubscribe:MIME-Version:Message-ID:Date;
+	bh=E0pLV+ewAzjcLIYivJnn3VDzi09gjpfJ64B5z3mEW58=;
+	b=wsaODojGgcLbcOIeIaNG7nxYM5dl4q+WXV05bvRszAr5GRtUlgtxf06iMM3lJ2wO
+	JtnXrk5VFwOHZfww7MYolefe7v+3UwTr5EKEQxosP+teHSkFbNsDabLUmwY8yCjIf0P
+	lZfhI9OhNqGnzgvk8JPB75MKs1BgGYEM1PgfMdis=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1643667247;
+	h=Content-Type:To:From:Subject:List-Unsubscribe:MIME-Version:Message-ID:Date:Feedback-ID;
+	bh=E0pLV+ewAzjcLIYivJnn3VDzi09gjpfJ64B5z3mEW58=;
+	b=L2XBUeQtZEzO2rjy+PgpTW/Bg/uc68IVSRcc4cEXvDSHrEKXJs908irGg79muu4r
+	AAUxxiE4BBrAoe3BABa+wpbsWkGoERlyo0DHtVqLNiTA3AOtbGIdO2ZLQad/3pOMJsV
+	TMT7BPHy0hTIsTPjfT4j0EejIHQi+YHgZyOwmXgg=
+Content-Type: multipart/mixed;boundary=MsHvtOPH
+To: seancokingtin@gmail.com
+From: OTbeatReport@orangetheoryfitness.com
+Subject: =?UTF-8?B?U2VhbiBDb2tpbmd0aW4sIHdheSB0byBjb25xdWVyIHRoYXQgd29ya291dC4gVHJhY2sgeW91ciBmaXRuZXNzIGpvdXJuZXkgaW5zaWRlLg== ?=
+Accept-Language: en-US
+Content-Language: en-US
+List-Unsubscribe: <https://api.orangetheory.co/member/mailings/v2/unsubscribe?e=U2FsdGVkX1%2B4UvI8SmXwD0we4OksjSeANNx%2FcLnq%2FBMY7O344s0FalAN7AlMLDjD>
+MIME-Version: 1.0
+Message-ID: <0100017eb233d010-27bdca1c-fdc9-4f43-adb0-372b766e356b-000000@email.amazonses.com>
+Date: Mon, 31 Jan 2022 22:14:07 +0000
+Feedback-ID: 1.us-east-1.odJk+HcUXPFBJEIxxBph1nunuUOJpKkkKiOiX7uV6sE=:AmazonSES
+X-SES-Outgoing: 2022.01.31-23.249.217.21
+
+--MsHvtOPH
+Content-Type: multipart/alternate;boundary=OMIB02gk
+
+--OMIB02gk
+Content-Type: text/html;charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctypehtml><html lang=3Den><head style=3D"Margin:0;color:#343a40;font-fa=
+mily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-siz=
+e:12px;padding:0"><title>=3D?UTF-8?B?U2VhbiBDb2tpbmd0aW4sIHdheSB0byBjb25xdW=
+VyIHRoYXQgd29ya291dC4gVHJhY2sgeW91ciBmaXRuZXNzIGpvdXJuZXkgaW5zaWRlLg=3D=3D =
+?=3D</title><meta charset=3Dutf-8 style=3D"Margin:0;color:#343a40;font-fami=
+ly:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:=
+12px;padding:0"><!--[if !mso]><meta http-equiv=3D"X-UA-Compatible" content=
+=3D"IE=3Dedge"> <![endif]--><meta name=3Ddescription content style=3D"Margi=
+n:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans=
+-serif!important;font-size:12px;padding:0"><meta name=3Dviewport content=3D=
+"width=3Ddevice-width,initial-scale=3D1"style=3D"Margin:0;color:#343a40;fon=
+t-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font=
+-size:12px;padding:0"><!--[if (mso)|(mso 16)]><style type=3D"text/css">body=
+,table,td,a,span{font-family:Arial,Helvetica,sans-serif !important}a{text-d=
+ecoration:none}</style><![endif]--><style style=3D"Margin:0;color:#343a40;f=
+ont-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fo=
+nt-size:12px;padding:0">@media screen{.summary-table>tr:first-child>:first-=
+child{color:#da6a35!important}.summary-table>tr:first-child>:not(:first-chi=
+ld){color:#e88839!important;font-style:italic!important}}@media screen and =
+(min-width:320px){.social li{padding:2px!important}.zone-space{width:25px!i=
+mportant}.zone-blue{background:#4e84c5}.zone-gray{background:#878d90}.zone-=
+green{background:#519577}.zone-orange{background:#ee5a18}.zone-red{backgrou=
+nd:#a12217}}@media screen and (min-width:420px){.zone-bar{width:40px!import=
+ant}.zone-stat{width:40px!important}.col-5 .section{max-width:60px!importan=
+t}.rule-break{width:330px!important}.ref-img{width:25px!important}}@media s=
+creen and (min-width:500px){.h2{font-size:18px!important}.zone-bar{width:50=
+px!important}.zone-stat{width:50px!important}.col-5 .section{max-width:70px=
+!important}.rule-break{width:430px!important}.h1{font-size:36px!important}.=
+summary-table>tr>td{font-size:16px!important;padding:15px 0!important}.summ=
+ary-table-headers>tr>th:first-child img{width:160px!important}.summary-tabl=
+e-headers>tr>th:not(:first-child) img{width:35px!important}.logo-td{text-al=
+ign:left!important}img.logo{width:60%!important;max-width:150px!important}.=
+col-2 .section,.col-3 .section{display:table-cell!important}.col-2 .section=
+{width:50%!important}.col-3 .section{width:33.33%!important}.header-coach,.=
+header-day,.header-studio-name{text-align:right!important}.header-studio-na=
+me{padding:0!important}.img-footer{max-width:200px!important}.splat-space{w=
+idth:175px!important}}@media screen and (min-width:600px){.very-sm-text{fon=
+t-size:12px!important}.zone-bar{width:60px!important}.zone-stat{width:60px!=
+important}.col-5 .section{max-width:80px!important}.rule-break{width:530px!=
+important}}</style></head><body style=3D"-webkit-font-smoothing:antialiased=
+;-webkit-text-size-adjust:none;Margin:0;background-color:#fefefe;color:#343=
+a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!importa=
+nt;font-size:12px;overflow-x:hidden;padding:0;text-decoration:none!importan=
+t"><table width=3D100% bgcolor=3D#fefefe style=3D"Margin:0;border-collapse:=
+separate;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neue=
+',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;ms=
+o-table-rspace:0;padding:0;text-decoration:none!important"border=3D0 cellpa=
+dding=3D0 cellspacing=3D0><tbody style=3D"Margin:0;color:#343a40;font-famil=
+y:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:1=
+2px;padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Hel=
+vetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"=
+><td align=3Dcenter style=3D"Margin:0;color:#343a40;font-family:Klavika,'He=
+lvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table=
+-lspace:0;mso-table-rspace:0;padding:0"><table class=3D"full-width-table bg=
+-gradient-red-orange"bgcolor=3D#ddd align=3Dcenter cellspacing=3D0 cellpadd=
+ing=3D0 width=3D100% style=3D"Margin:0 auto;background:#ef8132;border-colla=
+pse:separate;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica =
+Neue',Helvetica,Arial,sans-serif!important;font-size:12px;max-width:670px;m=
+so-table-lspace:0;mso-table-rspace:0;padding:0;text-decoration:none!importa=
+nt"border=3D0><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'H=
+elvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:=
+0"><tr class=3Dcol-2 style=3D"Margin:0;color:#343a40;font-family:Klavika,'H=
+elvetica Neue',Helvetica,Arial,sans-serif!important;font-size:0;padding:5px=
+ 0 10px 0"align=3Dcenter><td class=3Dsection style=3D"Margin:0;color:#343a4=
+0;display:block;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-s=
+erif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding=
+:0"width=3D"100% !important"><table width=3D100% style=3D"Margin:0;border-c=
+ollapse:separate;border-spacing:0;color:#343a40;font-family:Klavika,'Helvet=
+ica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lsp=
+ace:0;mso-table-rspace:0;padding:0;text-decoration:none!important"border=3D=
+0 cellpadding=3D0 cellspacing=3D0><tbody style=3D"Margin:0;color:#343a40;fo=
+nt-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fon=
+t-size:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klav=
+ika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;pa=
+dding:0"><td class=3Dlogo-td style=3D"Margin:0;color:#343a40;font-family:Kl=
+avika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;=
+mso-table-lspace:0;mso-table-rspace:0;padding:10px 0"align=3Dcenter><img sr=
+c=3Dhttps://s3.amazonaws.com/otf-email-images-dev/en-US/class-performance-r=
+esults/images/emailV2/otf_logo_white.png alt=3D"orange theory"class=3Dlogo =
+width=3D60% style=3D"Margin:0;border:0;color:#343a40;font-family:Klavika,'H=
+elvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;height:a=
+uto;max-width:175px;padding:0;padding-left:10px;width:80%"></td></tr></tbod=
+y></table></td><td class=3Dsection style=3D"Margin:0;color:#343a40;display:=
+block;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!impor=
+tant;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=
+=3D"100% !important"><table width=3D100% border=3D0 cellspacing=3D0 cellpad=
+ding=3D0 style=3D"Margin:0;border-collapse:separate;border-spacing:0;color:=
+#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!imp=
+ortant;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;text-=
+decoration:none!important"><tbody style=3D"Margin:0;color:#343a40;font-fami=
+ly:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:=
+12px;padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'He=
+lvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0=
+"><td style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',=
+Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-=
+table-rspace:0;padding:0 20px 5px 0"align=3Dright><p class=3D"text-white h3=
+ upper-case header-day"style=3D"Margin:0;color:#fefefe;font-family:Klavika,=
+'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;paddin=
+g:0;text-align:center;text-decoration:none!important;text-transform:upperca=
+se">STUDIO WORKOUT SUMMARY</p></td></tr><tr style=3D"Margin:0;color:#343a40=
+;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;=
+font-size:12px;padding:0"><td style=3D"Margin:0;color:#343a40;font-family:K=
+lavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px=
+;mso-table-lspace:0;mso-table-rspace:0;padding:0 20px 5px 0"align=3Dright><=
+p class=3D"text-white h3 upper-case header-studio-name"style=3D"Margin:0;co=
+lor:#fefefe;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif=
+!important;font-size:12px;padding:2px 0 10px 0;text-align:center;text-decor=
+ation:none!important;text-transform:uppercase">Rookwood</p></td></tr><tr st=
+yle=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetic=
+a,Arial,sans-serif!important;font-size:12px;padding:0"><td align=3Dright st=
+yle=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetic=
+a,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rs=
+pace:0;padding:0 5px 5px 0"><table width=3D100% border=3D0 cellspacing=3D0 =
+cellpadding=3D0 style=3D"Margin:0;border-collapse:separate;border-spacing:0=
+;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-se=
+rif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:=
+0;text-decoration:none!important"><tbody style=3D"Margin:0;color:#343a40;fo=
+nt-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fon=
+t-size:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klav=
+ika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;pa=
+dding:0"><td style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica=
+ Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace=
+:0;mso-table-rspace:0;padding:0"></td><td style=3D"Margin:0;border:none;col=
+or:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!=
+important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0 10=
+px"align=3Dcenter><p class=3Dtext-white style=3D"Margin:0;color:#fefefe;fon=
+t-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font=
+-size:12px;padding:0;text-decoration:none!important">01/31/2022</p></td><td=
+ style=3D"Margin:0;border-left:1px solid #fefefe;border-right:1px solid #fe=
+fefe;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,san=
+s-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padd=
+ing:0 10px"align=3Dcenter><p class=3Dtext-white style=3D"Margin:0;color:#fe=
+fefe;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!import=
+ant;font-size:12px;padding:0;text-decoration:none!important">4&zwnj;:15 PM<=
+/p></td><td style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica =
+Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:=
+0;mso-table-rspace:0;padding:0 10px"align=3Dcenter><p class=3Dtext-white st=
+yle=3D"Margin:0;color:#fefefe;font-family:Klavika,'Helvetica Neue',Helvetic=
+a,Arial,sans-serif!important;font-size:12px;padding:0;text-decoration:none!=
+important">Brennan</p></td></tr></tbody></table></td></tr></tbody></table><=
+/td></tr></tbody></table></td></tr></tbody></table><table align=3Dcenter cl=
+ass=3Dmargin-table border=3D0 cellspacing=3D0 cellpadding=3D0 style=3D"Marg=
+in:0;border-collapse:separate;border-spacing:0;color:#343a40;font-family:Kl=
+avika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;=
+mso-table-lspace:0;mso-table-rspace:0;padding:0;text-decoration:none!import=
+ant"width=3D100%><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika=
+,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;paddi=
+ng:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Ne=
+ue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td styl=
+e=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,=
+Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspa=
+ce:0;padding:0"height=3D40></td></tr></tbody></table><table width=3D100% bo=
+rder=3D0 cellspacing=3D0 cellpadding=3D0 class=3D"inner-table stats-bar"bgc=
+olor=3D#fefefe align=3Dcenter style=3D"Margin:0 auto;border-collapse:separa=
+te;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helv=
+etica,Arial,sans-serif!important;font-size:12px;max-height:210px;max-width:=
+630px;mso-table-lspace:0;mso-table-rspace:0;padding:10px;text-decoration:no=
+ne!important"height=3D210px><tbody style=3D"Margin:0;color:#343a40;font-fam=
+ily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size=
+:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'H=
+elvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:=
+0"align=3Dcenter><td align=3Dcenter style=3D"Margin:0;color:#343a40;font-fa=
+mily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-siz=
+e:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"bgcolor=3D#fefefe va=
+lign=3Dbottom><table bgcolor=3D#fefefe style=3D"Margin:0;border-collapse:se=
+parate;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',=
+Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-=
+table-rspace:0;padding:0;text-decoration:none!important"border=3D0 cellpadd=
+ing=3D0 cellspacing=3D0><tbody style=3D"Margin:0;color:#343a40;font-family:=
+Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12p=
+x;padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helve=
+tica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><=
+td style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Hel=
+vetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-tab=
+le-rspace:0;padding:0"align=3Dcenter bgcolor=3D#fefefe valign=3Dbottom><tab=
+le bgcolor=3D#fefefe style=3D"Margin:0;border-collapse:separate;border-spac=
+ing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sa=
+ns-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;pad=
+ding:0;text-decoration:none!important"border=3D0 cellpadding=3D0 cellspacin=
+g=3D0><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica=
+ Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr s=
+tyle=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helveti=
+ca,Arial,sans-serif!important;font-size:12px;padding:0"><td class=3D"zone-b=
+ar zone-gray"style=3D"Margin:0;background:#878d90;border-top-left-radius:5p=
+x;border-top-right-radius:5px;color:#343a40;font-family:Klavika,'Helvetica =
+Neue',Helvetica,Arial,sans-serif!important;font-size:12px;line-height:20.21=
+0526315789473px;max-height:192px;max-width:50px;mso-table-lspace:0;mso-tabl=
+e-rspace:0;padding:0"width=3D40 height=3D20.210526315789473px>&nbsp;</td><t=
+d class=3Dzone-space style=3D"Margin:0;color:#343a40;font-family:Klavika,'H=
+elvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-tabl=
+e-lspace:0;mso-table-rspace:0;padding:0"width=3D20 height=3D1px></td></tr><=
+/tbody></table></td><td style=3D"Margin:0;color:#343a40;font-family:Klavika=
+,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-t=
+able-lspace:0;mso-table-rspace:0;padding:0"align=3Dcenter bgcolor=3D#fefefe=
+ valign=3Dbottom><table bgcolor=3D#fefefe style=3D"Margin:0;border-collapse=
+:separate;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neu=
+e',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;m=
+so-table-rspace:0;padding:0;text-decoration:none!important"border=3D0 cellp=
+adding=3D0 cellspacing=3D0><tbody style=3D"Margin:0;color:#343a40;font-fami=
+ly:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:=
+12px;padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'He=
+lvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0=
+"><td class=3D"zone-bar zone-blue"style=3D"Margin:0;background:#4e84c5;bord=
+er-top-left-radius:5px;border-top-right-radius:5px;color:#343a40;font-famil=
+y:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:1=
+2px;line-height:40.421052631578945px;max-height:192px;max-width:50px;mso-ta=
+ble-lspace:0;mso-table-rspace:0;padding:0"width=3D40 height=3D40.4210526315=
+78945px>&nbsp;</td><td class=3Dzone-space style=3D"Margin:0;color:#343a40;f=
+ont-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fo=
+nt-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=3D20 hei=
+ght=3D1px></td></tr></tbody></table></td><td style=3D"Margin:0;color:#343a4=
+0;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important=
+;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"align=3Dcen=
+ter bgcolor=3D#fefefe valign=3Dbottom><table bgcolor=3D#fefefe style=3D"Mar=
+gin:0;border-collapse:separate;border-spacing:0;color:#343a40;font-family:K=
+lavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px=
+;mso-table-lspace:0;mso-table-rspace:0;padding:0;text-decoration:none!impor=
+tant"border=3D0 cellpadding=3D0 cellspacing=3D0><tbody style=3D"Margin:0;co=
+lor:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif=
+!important;font-size:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;fo=
+nt-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fon=
+t-size:12px;padding:0"><td class=3D"zone-bar zone-green"style=3D"Margin:0;b=
+ackground:#519577;border-top-left-radius:5px;border-top-right-radius:5px;co=
+lor:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif=
+!important;font-size:12px;line-height:151.57894736842104px;max-height:192px=
+;max-width:50px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=3D40 =
+height=3D151.57894736842104px>&nbsp;</td><td class=3Dzone-space style=3D"Ma=
+rgin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,s=
+ans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;pa=
+dding:0"width=3D20 height=3D1px></td></tr></tbody></table></td><td style=3D=
+"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Aria=
+l,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0=
+;padding:0"align=3Dcenter bgcolor=3D#fefefe valign=3Dbottom><table bgcolor=
+=3D#fefefe style=3D"Margin:0;border-collapse:separate;border-spacing:0;colo=
+r:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!i=
+mportant;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;tex=
+t-decoration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0><tbo=
+dy style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Hel=
+vetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr style=3D"Ma=
+rgin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,s=
+ans-serif!important;font-size:12px;padding:0"><td class=3D"zone-bar zone-or=
+ange"style=3D"Margin:0;background:#ee5a18;border-top-left-radius:5px;border=
+-top-right-radius:5px;color:#343a40;font-family:Klavika,'Helvetica Neue',He=
+lvetica,Arial,sans-serif!important;font-size:12px;line-height:192px;max-hei=
+ght:192px;max-width:50px;mso-table-lspace:0;mso-table-rspace:0;padding:0"wi=
+dth=3D40 height=3D192px>&nbsp;</td><td class=3Dzone-space style=3D"Margin:0=
+;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-se=
+rif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:=
+0"width=3D20 height=3D1px></td></tr></tbody></table></td><td style=3D"Margi=
+n:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans=
+-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;paddi=
+ng:0"align=3Dcenter bgcolor=3D#fefefe valign=3Dbottom><table bgcolor=3D#fef=
+efe style=3D"Margin:0;border-collapse:separate;border-spacing:0;color:#343a=
+40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!importan=
+t;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;text-decor=
+ation:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0><tbody styl=
+e=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,=
+Arial,sans-serif!important;font-size:12px;padding:0"><tr style=3D"Margin:0;=
+color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-ser=
+if!important;font-size:12px;padding:0"><td class=3D"zone-bar zone-red"style=
+=3D"Margin:0;background:#a12217;border-top-left-radius:5px;border-top-right=
+-radius:5px;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Ar=
+ial,sans-serif!important;font-size:12px;line-height:181.89473684210526px;ma=
+x-height:192px;max-width:50px;mso-table-lspace:0;mso-table-rspace:0;padding=
+:0"width=3D40 height=3D181.89473684210526px>&nbsp;</td><td class=3Dzone-spa=
+ce style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Hel=
+vetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-tab=
+le-rspace:0;padding:0"width=3D20 height=3D1px></td></tr></tbody></table></t=
+d></tr><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica N=
+eue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td sty=
+le=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica=
+,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rsp=
+ace:0;padding:0"align=3Dcenter valign=3Dbottom><table align=3Dcenter bgcolo=
+r=3D#fefefe style=3D"Margin:0;border-collapse:separate;border-spacing:0;col=
+or:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!=
+important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;te=
+xt-decoration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0><tb=
+ody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',He=
+lvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr style=3D"M=
+argin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,=
+sans-serif!important;font-size:12px;padding:0"><td align=3Dcenter class=3Dz=
+one-bar style=3D"Margin:0;border-top-left-radius:5px;border-top-right-radiu=
+s:5px;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sa=
+ns-serif!important;font-size:12px;max-height:192px;max-width:50px;mso-table=
+-lspace:0;mso-table-rspace:0;padding:0"width=3D30px><p class=3D"bar-bumber =
+text-gray h2"style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica=
+ Neue',Helvetica,Arial,sans-serif!important;font-size:15px;padding:0;paddin=
+g-top:10px;text-decoration:none!important">2</p></td><td class=3Dzone-space=
+ style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helve=
+tica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table=
+-rspace:0;padding:0"width=3D20 height=3D1px></td></tr></tbody></table></td>=
+<td style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',He=
+lvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-ta=
+ble-rspace:0;padding:0"align=3Dcenter valign=3Dbottom><table align=3Dcenter=
+ bgcolor=3D#fefefe style=3D"Margin:0;border-collapse:separate;border-spacin=
+g:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans=
+-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;paddi=
+ng:0;text-decoration:none!important"border=3D0 cellpadding=3D0 cellspacing=
+=3D0><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica =
+Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr st=
+yle=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetic=
+a,Arial,sans-serif!important;font-size:12px;padding:0"><td align=3Dcenter c=
+lass=3Dzone-bar style=3D"Margin:0;border-top-left-radius:5px;border-top-rig=
+ht-radius:5px;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,=
+Arial,sans-serif!important;font-size:12px;max-height:192px;max-width:50px;m=
+so-table-lspace:0;mso-table-rspace:0;padding:0"width=3D30px><p class=3D"bar=
+-bumber text-gray h2"style=3D"Margin:0;color:#6f767b;font-family:Klavika,'H=
+elvetica Neue',Helvetica,Arial,sans-serif!important;font-size:15px;padding:=
+0;padding-top:10px;text-decoration:none!important">4</p></td><td class=3Dzo=
+ne-space style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neu=
+e',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;m=
+so-table-rspace:0;padding:0"width=3D20 height=3D1px></td></tr></tbody></tab=
+le></td><td style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica =
+Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:=
+0;mso-table-rspace:0;padding:0"align=3Dcenter valign=3Dbottom><table align=
+=3Dcenter bgcolor=3D#fefefe style=3D"Margin:0;border-collapse:separate;bord=
+er-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspac=
+e:0;padding:0;text-decoration:none!important"border=3D0 cellpadding=3D0 cel=
+lspacing=3D0><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'He=
+lvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0=
+"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',=
+Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td align=3D=
+center class=3Dzone-bar style=3D"Margin:0;border-top-left-radius:5px;border=
+-top-right-radius:5px;color:#343a40;font-family:Klavika,'Helvetica Neue',He=
+lvetica,Arial,sans-serif!important;font-size:12px;max-height:192px;max-widt=
+h:50px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=3D30px><p clas=
+s=3D"bar-bumber text-gray h2"style=3D"Margin:0;color:#6f767b;font-family:Kl=
+avika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:15px;=
+padding:0;padding-top:10px;text-decoration:none!important">15</p></td><td c=
+lass=3Dzone-space style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helv=
+etica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-l=
+space:0;mso-table-rspace:0;padding:0"width=3D20 height=3D1px></td></tr></tb=
+ody></table></td><td style=3D"Margin:0;color:#343a40;font-family:Klavika,'H=
+elvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-tabl=
+e-lspace:0;mso-table-rspace:0;padding:0"align=3Dcenter valign=3Dbottom><tab=
+le align=3Dcenter bgcolor=3D#fefefe style=3D"Margin:0;border-collapse:separ=
+ate;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Hel=
+vetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-tab=
+le-rspace:0;padding:0;text-decoration:none!important"border=3D0 cellpadding=
+=3D0 cellspacing=3D0><tbody style=3D"Margin:0;color:#343a40;font-family:Kla=
+vika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;p=
+adding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetic=
+a Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td =
+align=3Dcenter class=3Dzone-bar style=3D"Margin:0;border-top-left-radius:5p=
+x;border-top-right-radius:5px;color:#343a40;font-family:Klavika,'Helvetica =
+Neue',Helvetica,Arial,sans-serif!important;font-size:12px;max-height:192px;=
+max-width:50px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=3D30px=
+><p class=3D"bar-bumber text-gray h2"style=3D"Margin:0;color:#6f767b;font-f=
+amily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-si=
+ze:15px;padding:0;padding-top:10px;text-decoration:none!important">19</p></=
+td><td class=3Dzone-space style=3D"Margin:0;color:#343a40;font-family:Klavi=
+ka,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso=
+-table-lspace:0;mso-table-rspace:0;padding:0"width=3D20 height=3D1px></td><=
+/tr></tbody></table></td><td style=3D"Margin:0;color:#343a40;font-family:Kl=
+avika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;=
+mso-table-lspace:0;mso-table-rspace:0;padding:0"align=3Dcenter valign=3Dbot=
+tom><table align=3Dcenter bgcolor=3D#fefefe style=3D"Margin:0;border-collap=
+se:separate;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica N=
+eue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0=
+;mso-table-rspace:0;padding:0;text-decoration:none!important"border=3D0 cel=
+lpadding=3D0 cellspacing=3D0><tbody style=3D"Margin:0;color:#343a40;font-fa=
+mily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-siz=
+e:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'=
+Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding=
+:0"><td align=3Dcenter class=3Dzone-bar style=3D"Margin:0;border-top-left-r=
+adius:5px;border-top-right-radius:5px;color:#343a40;font-family:Klavika,'He=
+lvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;max-heigh=
+t:192px;max-width:50px;mso-table-lspace:0;mso-table-rspace:0;padding:0"widt=
+h=3D30px><p class=3D"bar-bumber text-gray h2"style=3D"Margin:0;color:#6f767=
+b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important=
+;font-size:15px;padding:0;padding-top:10px;text-decoration:none!important">=
+18</p></td><td class=3Dzone-space style=3D"Margin:0;color:#343a40;font-fami=
+ly:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:=
+12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=3D20 height=3D1p=
+x></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></t=
+able><table align=3Dcenter class=3Dmargin-table style=3D"Margin:0;border-co=
+llapse:separate;border-spacing:0;color:#343a40;font-family:Klavika,'Helveti=
+ca Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspa=
+ce:0;mso-table-rspace:0;padding:0;text-decoration:none!important"border=3D0=
+ cellpadding=3D0 cellspacing=3D0 width=3D100%><tbody style=3D"Margin:0;colo=
+r:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!i=
+mportant;font-size:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;font=
+-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-=
+size:12px;padding:0"><td style=3D"Margin:0;color:#343a40;font-family:Klavik=
+a,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-=
+table-lspace:0;mso-table-rspace:0;padding:0"height=3D30></td></tr></tbody><=
+/table><table class=3Dfull-width-table border=3D0 cellspacing=3D0 bgcolor=
+=3D#fefefe align=3Dcenter style=3D"Margin:0 auto;border-collapse:separate;b=
+order-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetic=
+a,Arial,sans-serif!important;font-size:12px;max-width:670px;mso-table-lspac=
+e:0;mso-table-rspace:0;padding:0;text-decoration:none!important"cellpadding=
+=3D0 width=3D100%><tbody style=3D"Margin:0;color:#343a40;font-family:Klavik=
+a,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padd=
+ing:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica N=
+eue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td ali=
+gn=3Dcenter style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica =
+Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:=
+0;mso-table-rspace:0;padding:0"valign=3Dmiddle><p class=3D"h2 text-gray tex=
+t-italic"style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neu=
+e',Helvetica,Arial,sans-serif!important;font-size:14px;font-style:italic;pa=
+dding:0;text-decoration:none!important">MINUTES / ZONE</p></td></tr></tbody=
+></table><table align=3Dcenter class=3Dmargin-table style=3D"Margin:0;borde=
+r-collapse:separate;border-spacing:0;color:#343a40;font-family:Klavika,'Hel=
+vetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-=
+lspace:0;mso-table-rspace:0;padding:0;text-decoration:none!important"border=
+=3D0 cellpadding=3D0 cellspacing=3D0 width=3D100%><tbody style=3D"Margin:0;=
+color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-ser=
+if!important;font-size:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;=
+font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;f=
+ont-size:12px;padding:0"><td style=3D"Margin:0;color:#343a40;font-family:Kl=
+avika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;=
+mso-table-lspace:0;mso-table-rspace:0;padding:0"height=3D30></td></tr></tbo=
+dy></table><table class=3D"inner-table splats-top"bgcolor=3D#fefefe align=
+=3Dcenter style=3D"Margin:0 auto;border-collapse:separate;border-spacing:0;=
+color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-ser=
+if!important;font-size:12px;max-width:630px;mso-table-lspace:0;mso-table-rs=
+pace:0;padding:10px;text-decoration:none!important"border=3D0 cellpadding=
+=3D0 cellspacing=3D0 width=3D100%><tbody style=3D"Margin:0;color:#343a40;fo=
+nt-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fon=
+t-size:12px;padding:0"><tr class=3Dcol-2 style=3D"Margin:0;color:#343a40;fo=
+nt-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fon=
+t-size:0;padding:5px 0 10px 0"align=3Dcenter><td align=3Dcenter bgcolor=3D#=
+fefefe style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue'=
+,Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso=
+-table-rspace:0;padding:0"><table bgcolor=3D#fefefe style=3D"Margin:0;borde=
+r-collapse:separate;border-spacing:0;color:#343a40;font-family:Klavika,'Hel=
+vetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-=
+lspace:0;mso-table-rspace:0;padding:0;text-decoration:none!important"border=
+=3D0 cellpadding=3D0 cellspacing=3D0><tbody style=3D"Margin:0;color:#343a40=
+;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;=
+font-size:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:K=
+lavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px=
+;padding:0"><td class=3Dchlang-td-left style=3D"Margin:0;background:#f5f5f5=
+;border-radius:10px;color:#343a40;font-family:Klavika,'Helvetica Neue',Helv=
+etica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-tabl=
+e-rspace:0;padding:25px 20px"width=3D500 valign=3Dtop align=3Dcenter><table=
+ style=3D"Margin:0;border-collapse:separate;border-spacing:0;color:#343a40;=
+font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;f=
+ont-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;text-decorati=
+on:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0><tr style=3D"M=
+argin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,=
+sans-serif!important;font-size:12px;padding:0"><td align=3Dcenter style=3D"=
+Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial=
+,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;=
+padding:0"><img src=3Dhttps://s3.amazonaws.com/otf-email-images-dev/en-US/c=
+lass-performance-results/images/emailV2/v3/png/flame.png alt=3Dflame class=
+=3Dsplat-image style=3D"Margin:0;border:0;color:#343a40;font-family:Klavika=
+,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;heigh=
+t:auto;padding:0;width:48px"width=3D48></td></tr><tr style=3D"Margin:0;colo=
+r:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!i=
+mportant;font-size:12px;padding:0"><td align=3Dcenter style=3D"Margin:0;col=
+or:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!=
+important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"><=
+p class=3D"h1 text-gray text-bold"style=3D"Margin:0;color:#6f767b;font-fami=
+ly:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:=
+22px;font-weight:600;padding:0;text-decoration:none!important">952</p></td>=
+</tr><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neu=
+e',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td align=
+=3Dcenter style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Ne=
+ue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;=
+mso-table-rspace:0;padding:0"><p class=3D"h2 text-gray"style=3D"Margin:0;co=
+lor:#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif=
+!important;font-size:14px;padding:0;text-decoration:none!important">CALORIE=
+S BURNED</p></td></tr></table></td><td class=3Dsplat-space style=3D"Margin:=
+0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-s=
+erif!important;font-size:12px;max-width:175px;mso-table-lspace:0;mso-table-=
+rspace:0;padding:0"bgcolor=3D#fefefe width=3D175></td><td class=3Dchlang-td=
+-right style=3D"Margin:0;background:#f5f5f5;border-radius:10px;color:#343a4=
+0;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important=
+;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:25px 20px"wid=
+th=3D500 valign=3Dtop align=3Dcenter><table style=3D"Margin:0;border-collap=
+se:separate;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica N=
+eue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0=
+;mso-table-rspace:0;padding:0;text-decoration:none!important"border=3D0 cel=
+lpadding=3D0 cellspacing=3D0><tr style=3D"Margin:0;color:#343a40;font-famil=
+y:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:1=
+2px;padding:0"><td align=3Dcenter style=3D"Margin:0;color:#343a40;font-fami=
+ly:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:=
+12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"><img src=3Dhttps://s3=
+.amazonaws.com/otf-email-images-dev/en-US/class-performance-results/images/=
+emailV2/v3/png/splat.png alt=3Dsplat class=3Dsplat-image style=3D"Margin:0;=
+border:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial=
+,sans-serif!important;font-size:12px;height:auto;padding:0;width:48px"width=
+=3D48></td></tr><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'He=
+lvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0=
+"><td align=3Dcenter style=3D"Margin:0;color:#343a40;font-family:Klavika,'H=
+elvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-tabl=
+e-lspace:0;mso-table-rspace:0;padding:0"><p class=3D"h1 text-gray text-bold=
+"style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helve=
+tica,Arial,sans-serif!important;font-size:22px;font-weight:600;padding:0;te=
+xt-decoration:none!important">37</p></td></tr><tr style=3D"Margin:0;color:#=
+343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!impo=
+rtant;font-size:12px;padding:0"><td align=3Dcenter style=3D"Margin:0;color:=
+#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!imp=
+ortant;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"><p c=
+lass=3D"h2 text-gray"style=3D"Margin:0;color:#6f767b;font-family:Klavika,'H=
+elvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;padding:=
+0;text-decoration:none!important">SPLAT POINTS</p></td></tr></table></td></=
+tr></tbody></table></td></tr></tbody></table><table align=3Dcenter class=3D=
+margin-table bgcolor=3D#fefefe style=3D"Margin:0;border-collapse:separate;b=
+order-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetic=
+a,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rs=
+pace:0;padding:0;text-decoration:none!important"border=3D0 cellpadding=3D0 =
+cellspacing=3D0 width=3D100%><tbody style=3D"Margin:0;color:#343a40;font-fa=
+mily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-siz=
+e:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'=
+Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding=
+:0"><td style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue=
+',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;ms=
+o-table-rspace:0;padding:0"bgcolor=3D#fefefe height=3D30></td></tr></tbody>=
+</table><table class=3D"inner-table splats-bottom"align=3Dcenter style=3D"M=
+argin:0 auto;border-collapse:separate;border-spacing:0;color:#343a40;font-f=
+amily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-si=
+ze:12px;max-width:630px;mso-table-lspace:0;mso-table-rspace:0;padding:10px;=
+text-decoration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0 w=
+idth=3D100%><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Hel=
+vetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"=
+><tr class=3Dcol-2 style=3D"Margin:0;color:#343a40;font-family:Klavika,'Hel=
+vetica Neue',Helvetica,Arial,sans-serif!important;font-size:0;padding:5px 0=
+ 10px 0"align=3Dcenter><td align=3Dcenter bgcolor=3D#fefefe style=3D"Margin=
+:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-=
+serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;paddin=
+g:0"><table style=3D"Margin:0;border-collapse:separate;border-spacing:0;col=
+or:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!=
+important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;te=
+xt-decoration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0><tb=
+ody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',He=
+lvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr style=3D"M=
+argin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,=
+sans-serif!important;font-size:12px;padding:0"><td class=3Dchlang-td-left s=
+tyle=3D"Margin:0;background:#f5f5f5;border-radius:10px;color:#343a40;font-f=
+amily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-si=
+ze:12px;mso-table-lspace:0;mso-table-rspace:0;padding:25px 20px"width=3D500=
+ valign=3Dtop align=3Dcenter><table style=3D"Margin:0;border-collapse:separ=
+ate;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Hel=
+vetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-tab=
+le-rspace:0;padding:0;text-decoration:none!important"border=3D0 cellpadding=
+=3D0 cellspacing=3D0><tr style=3D"Margin:0;color:#343a40;font-family:Klavik=
+a,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padd=
+ing:0"><td align=3Dcenter style=3D"Margin:0;color:#343a40;font-family:Klavi=
+ka,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso=
+-table-lspace:0;mso-table-rspace:0;padding:0"><img src=3Dhttps://s3.amazona=
+ws.com/otf-email-images-dev/en-US/class-performance-results/images/emailV2/=
+v3/png/heart.png alt=3D"heart rate"class=3Dsplat-image style=3D"Margin:0;bo=
+rder:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,s=
+ans-serif!important;font-size:12px;height:auto;padding:0;width:48px"width=
+=3D48></td></tr><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'He=
+lvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0=
+"><td align=3Dcenter style=3D"Margin:0;color:#343a40;font-family:Klavika,'H=
+elvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-tabl=
+e-lspace:0;mso-table-rspace:0;padding:0"><p class=3D"h1 text-gray text-bold=
+"style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helve=
+tica,Arial,sans-serif!important;font-size:22px;font-weight:600;padding:0;te=
+xt-decoration:none!important">162</p></td></tr><tr style=3D"Margin:0;color:=
+#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!imp=
+ortant;font-size:12px;padding:0"><td align=3Dcenter style=3D"Margin:0;color=
+:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!im=
+portant;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"><p =
+class=3D"h2 text-gray"style=3D"Margin:0;color:#6f767b;font-family:Klavika,'=
+Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;padding=
+:0;text-decoration:none!important">AVG. HEART-RATE</p></td></tr><tr style=
+=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:12px;padding:0"><td align=3Dcenter styl=
+e=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,=
+Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspa=
+ce:0;padding:0"><p class=3D"h2 text-gray text-bold"style=3D"Margin:0;color:=
+#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!imp=
+ortant;font-size:14px;font-weight:600;padding:0;text-decoration:none!import=
+ant"><span class=3D"h2 text-bold text-light-gray"style=3D"Margin:0;color:#c=
+acdce;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!impor=
+tant;font-size:14px;font-weight:600;padding:0">Peak HR:&nbsp;</span>193</p>=
+<p class=3D"h2 text-gray"style=3D"Margin:0;color:#6f767b;font-family:Klavik=
+a,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;padd=
+ing:0;text-decoration:none!important">&nbsp;</p></td></tr></table></td><td =
+class=3Dsplat-space style=3D"Margin:0;color:#343a40;font-family:Klavika,'He=
+lvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;max-width=
+:175px;mso-table-lspace:0;mso-table-rspace:0;padding:0"bgcolor=3D#fefefe wi=
+dth=3D175></td><td class=3Dchlang-td-right style=3D"Margin:0;background:#f5=
+f5f5;border-radius:10px;color:#343a40;font-family:Klavika,'Helvetica Neue',=
+Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-=
+table-rspace:0;padding:25px 20px"width=3D500 valign=3Dtop align=3Dcenter><t=
+able style=3D"Margin:0;border-collapse:separate;border-spacing:0;color:#343=
+a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!importa=
+nt;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;text-deco=
+ration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0><tr style=
+=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:12px;padding:0"><td align=3Dcenter styl=
+e=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,=
+Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspa=
+ce:0;padding:0"><img src=3Dhttps://s3.amazonaws.com/otf-email-images-dev/en=
+-US/class-performance-results/images/emailV2/v3/png/steps.png alt=3Dpercent=
+age class=3Dsplat-image style=3D"Margin:0;border:0;color:#343a40;font-famil=
+y:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:1=
+2px;height:auto;padding:0;width:48px"width=3D48></td></tr><tr style=3D"Marg=
+in:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,san=
+s-serif!important;font-size:12px;padding:0"><td align=3Dcenter style=3D"Mar=
+gin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sa=
+ns-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;pad=
+ding:0"><p class=3D"h1 text-gray text-bold"style=3D"Margin:0;color:#6f767b;=
+font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;f=
+ont-size:22px;font-weight:600;padding:0;text-decoration:none!important">328=
+3</p></td></tr><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Hel=
+vetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"=
+><td align=3Dcenter style=3D"Margin:0;color:#343a40;font-family:Klavika,'He=
+lvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table=
+-lspace:0;mso-table-rspace:0;padding:0"><p class=3D"h2 text-gray"style=3D"M=
+argin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,=
+sans-serif!important;font-size:14px;padding:0;text-decoration:none!importan=
+t">STEPS</p></td></tr><tr style=3D"Margin:0;color:#343a40;font-family:Klavi=
+ka,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;pad=
+ding:0"><td align=3Dcenter style=3D"Margin:0;color:#343a40;font-family:Klav=
+ika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;ms=
+o-table-lspace:0;mso-table-rspace:0;padding:0"><p class=3D"h2 text-gray tex=
+t-bold"style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue'=
+,Helvetica,Arial,sans-serif!important;font-size:14px;font-weight:600;paddin=
+g:0;text-decoration:none!important"></p></td></tr></table></td></tr></tbody=
+></table></td></tr></tbody></table><table align=3Dcenter class=3Dmargin-tab=
+le style=3D"Margin:0;border-collapse:separate;border-spacing:0;color:#343a4=
+0;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important=
+;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;text-decora=
+tion:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0 width=3D100%=
+><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue=
+',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr style=
+=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:12px;padding:0"><td style=3D"Margin:0;c=
+olor:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-seri=
+f!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"=
+height=3D30></td></tr></tbody></table><table class=3Dinner-table bgcolor=3D=
+#fefefe align=3Dcenter style=3D"Margin:0 auto;border-collapse:separate;bord=
+er-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:12px;max-width:630px;mso-table-lspace:0=
+;mso-table-rspace:0;padding:10px;text-decoration:none!important"border=3D0 =
+cellpadding=3D0 cellspacing=3D0 width=3D100%><tbody style=3D"Margin:0;color=
+:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!im=
+portant;font-size:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;font-=
+family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-s=
+ize:12px;padding:0"><td align=3Dcenter style=3D"Margin:0;color:#343a40;font=
+-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-=
+size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:10px 10px"><table s=
+tyle=3D"Margin:0;border-collapse:separate;border-spacing:0;color:#343a40;fo=
+nt-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fon=
+t-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;text-decoration=
+:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0><tbody style=3D"=
+Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial=
+,sans-serif!important;font-size:12px;padding:0"><tr style=3D"Margin:0;color=
+:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!im=
+portant;font-size:12px;padding:0"><td style=3D"Margin:0;color:#343a40;font-=
+family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-s=
+ize:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"><p class=3D"h2 te=
+xt-light text-gray text-italic"style=3D"Margin:0;color:#6f767b;font-family:=
+Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14p=
+x;font-style:italic;font-weight:400;padding:0;text-decoration:none!importan=
+t">TREADMILL PERFORMANCE TOTALS</p></td></tr></tbody></table></td></tr><tr =
+style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvet=
+ica,Arial,sans-serif!important;font-size:12px;padding:0"><td align=3Dcenter=
+ style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helve=
+tica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table=
+-rspace:0;padding:10px 10px"><table style=3D"Margin:0;border-collapse:separ=
+ate;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Hel=
+vetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-tab=
+le-rspace:0;padding:0;text-decoration:none!important"border=3D0 cellpadding=
+=3D0 cellspacing=3D0><tbody style=3D"Margin:0;color:#343a40;font-family:Kla=
+vika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;p=
+adding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetic=
+a Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td =
+class=3Dchlang-td-left align=3Dcenter style=3D"Margin:0;color:#343a40;font-=
+family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-s=
+ize:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=3D500 valign=
+=3Dtop><span class=3D"h1 text-gray text-bold"style=3D"Margin:0;color:#6f767=
+b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important=
+;font-size:22px;font-weight:600;padding:0">1.77</span><span class=3D"h2 tex=
+t-gray"style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue'=
+,Helvetica,Arial,sans-serif!important;font-size:14px;padding:0">&nbsp;miles=
+</span><p class=3D"h2 text-gray"style=3D"Margin:0;color:#6f767b;font-family=
+:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14=
+px;padding:0;text-decoration:none!important">Total Distance</p></td><td cla=
+ss=3Dsplat-space style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helve=
+tica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;max-width:17=
+5px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=3D75></td><td cla=
+ss=3Dchlang-td-right align=3Dcenter style=3D"Margin:0;color:#343a40;font-fa=
+mily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-siz=
+e:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=3D500 valign=
+=3Dtop><p class=3D"h1 text-gray text-bold"style=3D"Margin:0;color:#6f767b;f=
+ont-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fo=
+nt-size:22px;font-weight:600;padding:0;text-decoration:none!important">13&z=
+wnj;:21</p><p class=3D"h2 text-gray"style=3D"Margin:0;color:#6f767b;font-fa=
+mily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-siz=
+e:14px;padding:0;text-decoration:none!important">Total Time</p></td></tr></=
+tbody></table></td></tr></tbody></table><table align=3Dcenter class=3Dmargi=
+n-table style=3D"Margin:0;border-collapse:separate;border-spacing:0;color:#=
+343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!impo=
+rtant;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;text-d=
+ecoration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0 width=
+=3D100%><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helveti=
+ca Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr=
+ style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helve=
+tica,Arial,sans-serif!important;font-size:12px;padding:0"><td style=3D"Marg=
+in:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,san=
+s-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padd=
+ing:0"height=3D30></td></tr></tbody></table><table class=3Dinner-table bgco=
+lor=3D#f5f5f5 align=3Dcenter style=3D"Margin:0 auto;border-collapse:separat=
+e;border-radius:10px;border-spacing:0;color:#343a40;font-family:Klavika,'He=
+lvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;max-width=
+:630px;mso-table-lspace:0;mso-table-rspace:0;padding:10px;text-decoration:n=
+one!important"border=3D0 cellpadding=3D0 cellspacing=3D0 width=3D100%><tbod=
+y style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helv=
+etica,Arial,sans-serif!important;font-size:12px;padding:0"><tr class=3Dcol-=
+2 style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helv=
+etica,Arial,sans-serif!important;font-size:0;padding:5px 0 10px 0"align=3Dc=
+enter><td align=3Dcenter bgcolor=3D#f5f5f5 style=3D"Margin:0;border-radius:=
+10px;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,san=
+s-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padd=
+ing:10px"><table style=3D"Margin:0;border-collapse:separate;border-spacing:=
+0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-s=
+erif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding=
+:0;text-decoration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D=
+0><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neu=
+e',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr style=
+=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:12px;padding:0"><td class=3Dtd-align-le=
+ft style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Hel=
+vetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-tab=
+le-rspace:0;padding:0"width=3D250px align=3Dleft><table style=3D"Margin:0;b=
+order-collapse:separate;border-spacing:0;color:#343a40;font-family:Klavika,=
+'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-ta=
+ble-lspace:0;mso-table-rspace:0;padding:0;text-decoration:none!important"bo=
+rder=3D0 cellpadding=3D0 cellspacing=3D0><tr style=3D"Margin:0;color:#343a4=
+0;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important=
+;font-size:12px;padding:0"><td align=3Dcenter style=3D"Margin:0;color:#343a=
+40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!importan=
+t;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"><img src=
+=3Dhttps://s3.amazonaws.com/otf-email-images-dev/en-US/class-performance-re=
+sults/images/emailV2/v3/png/48x48/mph.png alt=3Dspeed class=3Dtreadmill-ima=
+ge style=3D"Margin:0;border:0;color:#343a40;font-family:Klavika,'Helvetica =
+Neue',Helvetica,Arial,sans-serif!important;font-size:12px;height:auto;margi=
+n-right:10px;padding:0;width:48px"width=3D48></td><td align=3Dcenter style=
+=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspac=
+e:0;padding:0"><p class=3D"h2 text-gray"style=3D"Margin:0;color:#6f767b;fon=
+t-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font=
+-size:14px;padding:0;text-decoration:none!important">AVG. SPEED</p></td></t=
+r></table></td><td class=3Dsplat-space style=3D"Margin:0;color:#343a40;font=
+-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-=
+size:12px;max-width:175px;mso-table-lspace:0;mso-table-rspace:0;padding:0"w=
+idth=3D75></td><td class=3Dtd-align-right style=3D"Margin:0;color:#343a40;f=
+ont-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fo=
+nt-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=3D250px =
+align=3Dcenter><table style=3D"Margin:0;border-collapse:separate;border-spa=
+cing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,s=
+ans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;pa=
+dding:0;text-decoration:none!important"border=3D0 cellpadding=3D0 cellspaci=
+ng=3D0><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica N=
+eue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td ali=
+gn=3Dcenter style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica =
+Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:=
+0;mso-table-rspace:0;padding:0"><span class=3D"h1 text-gray text-bold"style=
+=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:22px;font-weight:600;padding:0">7.9</sp=
+an><span class=3D"h2 text-gray"style=3D"Margin:0;color:#6f767b;font-family:=
+Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14p=
+x;padding:0">&nbsp;mph</span></td></tr><tr style=3D"Margin:0;color:#343a40;=
+font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;f=
+ont-size:12px;padding:0"><td align=3Dcenter style=3D"Margin:0;color:#343a40=
+;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;=
+font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"><p class=3D=
+"h2 text-gray text-bold"style=3D"Margin:0;color:#6f767b;font-family:Klavika=
+,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;font-=
+weight:600;padding:0;text-decoration:none!important"><span class=3D"h2 text=
+-bold text-light-gray"style=3D"Margin:0;color:#cacdce;font-family:Klavika,'=
+Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;font-we=
+ight:600;padding:0">Max:&nbsp;</span>11</p></td></tr></table></td></tr><tr =
+style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvet=
+ica,Arial,sans-serif!important;font-size:12px;padding:0"><td style=3D"Margi=
+n:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans=
+-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;paddi=
+ng:0"height=3D30></td></tr><tr style=3D"Margin:0;color:#343a40;font-family:=
+Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12p=
+x;padding:0"><td class=3Dtd-align-left style=3D"Margin:0;color:#343a40;font=
+-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-=
+size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=3D250px ali=
+gn=3Dleft><table style=3D"Margin:0;border-collapse:separate;border-spacing:=
+0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-s=
+erif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding=
+:0;text-decoration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D=
+0><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',=
+Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td align=3D=
+center style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue'=
+,Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso=
+-table-rspace:0;padding:0"><img src=3Dhttps://s3.amazonaws.com/otf-email-im=
+ages-dev/en-US/class-performance-results/images/emailV2/v3/png/48x48/inclin=
+e.png alt=3Dincline class=3Dtreadmill-image style=3D"Margin:0;border:0;colo=
+r:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!i=
+mportant;font-size:12px;height:auto;margin-right:10px;padding:0;width:48px"=
+width=3D48></td><td align=3Dcenter style=3D"Margin:0;color:#343a40;font-fam=
+ily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size=
+:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"><p class=3D"h2 text-=
+gray"style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',H=
+elvetica,Arial,sans-serif!important;font-size:14px;padding:0;text-decoratio=
+n:none!important">AVG. INCLINE</p></td></tr></table></td><td class=3Dsplat-=
+space style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',=
+Helvetica,Arial,sans-serif!important;font-size:12px;max-width:175px;mso-tab=
+le-lspace:0;mso-table-rspace:0;padding:0"width=3D75></td><td class=3Dtd-ali=
+gn-right style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neu=
+e',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;m=
+so-table-rspace:0;padding:0"width=3D250px align=3Dcenter><table style=3D"Ma=
+rgin:0;border-collapse:separate;border-spacing:0;color:#343a40;font-family:=
+Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12p=
+x;mso-table-lspace:0;mso-table-rspace:0;padding:0;text-decoration:none!impo=
+rtant"border=3D0 cellpadding=3D0 cellspacing=3D0><tr style=3D"Margin:0;colo=
+r:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!i=
+mportant;font-size:12px;padding:0"><td align=3Dcenter style=3D"Margin:0;col=
+or:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!=
+important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"><=
+span class=3D"h1 text-gray text-bold"style=3D"Margin:0;color:#6f767b;font-f=
+amily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-si=
+ze:22px;font-weight:600;padding:0">0</span><span class=3D"h2 text-gray"styl=
+e=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,=
+Arial,sans-serif!important;font-size:14px;padding:0">&nbsp;%</span></td></t=
+r><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',=
+Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td align=3D=
+center style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue'=
+,Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso=
+-table-rspace:0;padding:0"><span class=3D"h2 text-gray text-bold"style=3D"M=
+argin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,=
+sans-serif!important;font-size:14px;font-weight:600;padding:0"><span class=
+=3D"h2 text-bold text-light-gray"style=3D"Margin:0;color:#cacdce;font-famil=
+y:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:1=
+4px;font-weight:600;padding:0">Max:&nbsp;</span>0</span><span class=3D"h2 t=
+ext-gray"style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neu=
+e',Helvetica,Arial,sans-serif!important;font-size:14px;padding:0">&nbsp;%</=
+span></td></tr></table></td></tr><tr style=3D"Margin:0;color:#343a40;font-f=
+amily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-si=
+ze:12px;padding:0"><td style=3D"Margin:0;color:#343a40;font-family:Klavika,=
+'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-ta=
+ble-lspace:0;mso-table-rspace:0;padding:0"height=3D30></td></tr><tr style=
+=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:12px;padding:0"><td class=3Dtd-align-le=
+ft style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Hel=
+vetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-tab=
+le-rspace:0;padding:0"width=3D250px align=3Dleft><table style=3D"Margin:0;b=
+order-collapse:separate;border-spacing:0;color:#343a40;font-family:Klavika,=
+'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-ta=
+ble-lspace:0;mso-table-rspace:0;padding:0;text-decoration:none!important"bo=
+rder=3D0 cellpadding=3D0 cellspacing=3D0><tr style=3D"Margin:0;color:#343a4=
+0;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important=
+;font-size:12px;padding:0"><td align=3Dcenter style=3D"Margin:0;color:#343a=
+40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!importan=
+t;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"><img src=
+=3Dhttps://s3.amazonaws.com/otf-email-images-dev/en-US/class-performance-re=
+sults/images/emailV2/v3/png/48x48/timer.png alt=3Dspeed class=3Dtreadmill-i=
+mage style=3D"Margin:0;border:0;color:#343a40;font-family:Klavika,'Helvetic=
+a Neue',Helvetica,Arial,sans-serif!important;font-size:12px;height:auto;mar=
+gin-right:10px;padding:0;width:48px"width=3D48></td><td align=3Dcenter styl=
+e=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,=
+Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspa=
+ce:0;padding:0"><p class=3D"h2 text-gray"style=3D"Margin:0;color:#6f767b;fo=
+nt-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fon=
+t-size:14px;padding:0;text-decoration:none!important">AVG. PACE</p></td></t=
+r></table></td><td class=3Dsplat-space style=3D"Margin:0;color:#343a40;font=
+-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-=
+size:12px;max-width:175px;mso-table-lspace:0;mso-table-rspace:0;padding:0"w=
+idth=3D75></td><td class=3Dtd-align-right style=3D"Margin:0;color:#343a40;f=
+ont-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fo=
+nt-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=3D250px =
+align=3Dcenter><table style=3D"Margin:0;border-collapse:separate;border-spa=
+cing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,s=
+ans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;pa=
+dding:0;text-decoration:none!important"border=3D0 cellpadding=3D0 cellspaci=
+ng=3D0><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica N=
+eue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td ali=
+gn=3Dcenter style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica =
+Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:=
+0;mso-table-rspace:0;padding:0"><p class=3D"h1 text-gray text-bold"style=3D=
+"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,Aria=
+l,sans-serif!important;font-size:22px;font-weight:600;padding:0;text-decora=
+tion:none!important">07&zwnj;:37</p></td></tr><tr style=3D"Margin:0;color:#=
+343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!impo=
+rtant;font-size:12px;padding:0"><td align=3Dcenter style=3D"Margin:0;color:=
+#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!imp=
+ortant;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"><p c=
+lass=3D"h2 text-gray text-bold"style=3D"Margin:0;color:#6f767b;font-family:=
+Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14p=
+x;font-weight:600;padding:0;text-decoration:none!important"><span class=3D"=
+h2 text-bold text-light-gray"style=3D"Margin:0;color:#cacdce;font-family:Kl=
+avika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;=
+font-weight:600;padding:0">Fastest:&nbsp;</span>05&zwnj;:27</p></td></tr></=
+table></td></tr><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'He=
+lvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0=
+"><td style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',=
+Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-=
+table-rspace:0;padding:0"height=3D30></td></tr><tr style=3D"Margin:0;color:=
+#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!imp=
+ortant;font-size:12px;padding:0"><td class=3Dtd-align-left style=3D"Margin:=
+0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-s=
+erif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding=
+:0"width=3D250px align=3Dleft><table style=3D"Margin:0;border-collapse:sepa=
+rate;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',He=
+lvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-ta=
+ble-rspace:0;padding:0;text-decoration:none!important"border=3D0 cellpaddin=
+g=3D0 cellspacing=3D0><tr style=3D"Margin:0;color:#343a40;font-family:Klavi=
+ka,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;pad=
+ding:0"><td align=3Dcenter style=3D"Margin:0;color:#343a40;font-family:Klav=
+ika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;ms=
+o-table-lspace:0;mso-table-rspace:0;padding:0"><img src=3Dhttps://s3.amazon=
+aws.com/otf-email-images-dev/en-US/class-performance-results/images/emailV2=
+/v3/png/48x48/elevation.png alt=3Delevation class=3Dtreadmill-image style=
+=3D"Margin:0;border:0;color:#343a40;font-family:Klavika,'Helvetica Neue',He=
+lvetica,Arial,sans-serif!important;font-size:12px;height:auto;margin-right:=
+10px;padding:0;width:48px"width=3D48></td><td align=3Dcenter style=3D"Margi=
+n:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans=
+-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;paddi=
+ng:0"><p class=3D"h2 text-gray"style=3D"Margin:0;color:#6f767b;font-family:=
+Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14p=
+x;padding:0;text-decoration:none!important">ELEVATION</p></td></tr></table>=
+</td><td class=3Dsplat-space style=3D"Margin:0;color:#343a40;font-family:Kl=
+avika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;=
+max-width:175px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=3D75>=
+</td><td class=3Dtd-align-right style=3D"Margin:0;color:#343a40;font-family=
+:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12=
+px;mso-table-lspace:0;mso-table-rspace:0;padding:0"width=3D250px align=3Dce=
+nter><table style=3D"Margin:0;border-collapse:separate;border-spacing:0;col=
+or:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!=
+important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;te=
+xt-decoration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0><tr=
+ style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helve=
+tica,Arial,sans-serif!important;font-size:12px;padding:0"><td align=3Dcente=
+r style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helv=
+etica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-tabl=
+e-rspace:0;padding:0"><span class=3D"h1 text-gray text-bold"style=3D"Margin=
+:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-=
+serif!important;font-size:22px;font-weight:600;padding:0">0</span><span cla=
+ss=3D"h2 text-gray"style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Hel=
+vetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;padding:0"=
+>&nbsp;feet</span></td></tr></table></td></tr></tbody></table></td></tr></t=
+body></table><table align=3Dcenter class=3Dmargin-table style=3D"Margin:0;b=
+order-collapse:separate;border-spacing:0;color:#343a40;font-family:Klavika,=
+'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-ta=
+ble-lspace:0;mso-table-rspace:0;padding:0;text-decoration:none!important"bo=
+rder=3D0 cellpadding=3D0 cellspacing=3D0 width=3D100%><tbody style=3D"Margi=
+n:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans=
+-serif!important;font-size:12px;padding:0"><tr style=3D"Margin:0;color:#343=
+a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!importa=
+nt;font-size:12px;padding:0"><td style=3D"Margin:0;color:#343a40;font-famil=
+y:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:1=
+2px;mso-table-lspace:0;mso-table-rspace:0;padding:0"height=3D30></td></tr><=
+/tbody></table><table class=3Dfull-width-table bgcolor=3D#fefefe align=3Dce=
+nter style=3D"Margin:0 auto;border-collapse:separate;border-spacing:0;color=
+:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!im=
+portant;font-size:12px;max-width:670px;mso-table-lspace:0;mso-table-rspace:=
+0;padding:0;text-decoration:none!important"border=3D0 cellpadding=3D0 cells=
+pacing=3D0 width=3D100%><tbody style=3D"Margin:0;color:#343a40;font-family:=
+Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12p=
+x;padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helve=
+tica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><=
+td align=3Dcenter style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helv=
+etica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-l=
+space:0;mso-table-rspace:0;padding:0"><table style=3D"Margin:0;border-colla=
+pse:separate;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica =
+Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:=
+0;mso-table-rspace:0;padding:0;text-decoration:none!important"border=3D0 ce=
+llpadding=3D0 cellspacing=3D0><tbody style=3D"Margin:0;color:#343a40;font-f=
+amily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-si=
+ze:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,=
+'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;paddin=
+g:0"><td style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neu=
+e',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;m=
+so-table-rspace:0;padding:0"><p class=3D"h2 text-light text-gray text-itali=
+c"style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helv=
+etica,Arial,sans-serif!important;font-size:14px;font-style:italic;font-weig=
+ht:400;padding:0;text-decoration:none!important">ALL TIME</p></td></tr></tb=
+ody></table></td></tr></tbody></table><table align=3Dcenter class=3Dmargin-=
+table style=3D"Margin:0;border-collapse:separate;border-spacing:0;color:#34=
+3a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!import=
+ant;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;text-dec=
+oration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0 width=3D1=
+00%><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica N=
+eue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr sty=
+le=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica=
+,Arial,sans-serif!important;font-size:12px;padding:0"><td style=3D"Margin:0=
+;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-se=
+rif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:=
+0"height=3D30></td></tr></tbody></table><table class=3D"inner-table summary=
+"align=3Dcenter width=3D100% border=3D0 cellspacing=3D0 cellpadding=3D0 sty=
+le=3D"Margin:0 auto;border:0 solid #fefefe;border-collapse:separate;border-=
+radius:25px;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica N=
+eue',Helvetica,Arial,sans-serif!important;font-size:12px;max-width:630px;ms=
+o-table-lspace:0;mso-table-rspace:0;padding:10px;text-decoration:none!impor=
+tant"><thead class=3Dsummary-table-headers style=3D"Margin:0;color:#343a40;=
+font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;f=
+ont-size:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Kl=
+avika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;=
+padding:0"><th style=3D"Margin:0;background:#fefefe;color:#343a40;font-fami=
+ly:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:=
+12px;padding:5px"align=3Dcenter></th><th style=3D"Margin:0;background:#fcfc=
+ff;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-=
+serif!important;font-size:12px;padding:5px"align=3Dcenter><img class=3Dsumm=
+ary-th-image src=3Dhttps://s3.amazonaws.com/otf-email-images-dev/en-US/clas=
+s-performance-results/images/emailV2/v3/png/35x35/flame.png alt=3Dflame sty=
+le=3D"Margin:0;border:0;color:#343a40;font-family:Klavika,'Helvetica Neue',=
+Helvetica,Arial,sans-serif!important;font-size:12px;height:35px;padding:0;w=
+idth:35px"width=3D35><p style=3D"Margin:0;color:#6f767b;font-family:Klavika=
+,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;paddi=
+ng:0;text-decoration:none!important">CALORIES</p></th><th style=3D"Margin:0=
+;background:#fcfcff;color:#343a40;font-family:Klavika,'Helvetica Neue',Helv=
+etica,Arial,sans-serif!important;font-size:12px;padding:5px"align=3Dcenter>=
+<img class=3Dsummary-th-image src=3Dhttps://s3.amazonaws.com/otf-email-imag=
+es-dev/en-US/class-performance-results/images/emailV2/v3/png/35x35/splat.pn=
+g alt=3Dspalt style=3D"Margin:0;border:0;color:#343a40;font-family:Klavika,=
+'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;height=
+:35px;padding:0;width:35px"width=3D35><p style=3D"Margin:0;color:#6f767b;fo=
+nt-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fon=
+t-size:12px;padding:0;text-decoration:none!important">SPLAT PTS</p></th><th=
+ style=3D"Margin:0;background:#fcfcff;border-top-right-radius:15px;color:#3=
+43a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!impor=
+tant;font-size:12px;padding:5px"align=3Dcenter><img class=3Dsummary-th-imag=
+e src=3Dhttps://s3.amazonaws.com/otf-email-images-dev/en-US/class-performan=
+ce-results/images/emailV2/v3/png/35x35/steps.png alt=3Dsteps style=3D"Margi=
+n:0;border:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:12px;height:35px;padding:0;width:35px"w=
+idth=3D35><p style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica=
+ Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0;text-d=
+ecoration:none!important">STEPS</p></th></tr></thead><tbody class=3Dsummary=
+-table style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue'=
+,Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr style=
+=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:12px;padding:0"><td style=3D"Margin:0;b=
+ackground:#fcfcff;border-bottom-left-radius:15px;color:#343a40;font-family:=
+Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14p=
+x;font-style:italic;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"ali=
+gn=3Dcenter>THIS CLASS</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#6=
+f767b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!impor=
+tant;font-size:14px;font-style:italic;font-weight:700;mso-table-lspace:0;ms=
+o-table-rspace:0;padding:5px 0"align=3Dcenter>952</td><td bgcolor=3D#f5f5f5=
+ style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helve=
+tica,Arial,sans-serif!important;font-size:14px;font-style:italic;font-weigh=
+t:700;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>37=
+</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#6f767b;font-family:Klav=
+ika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;fo=
+nt-style:italic;font-weight:700;mso-table-lspace:0;mso-table-rspace:0;paddi=
+ng:5px 0"align=3Dcenter>3,283</td></tr><tr style=3D"Margin:0;color:#343a40;=
+font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;f=
+ont-size:12px;padding:0"><td style=3D"Margin:0;background:#fcfcff;border-bo=
+ttom-left-radius:15px;color:#343a40;font-family:Klavika,'Helvetica Neue',He=
+lvetica,Arial,sans-serif!important;font-size:14px;font-style:italic;mso-tab=
+le-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>THIS WEEK</td><=
+td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#6f767b;font-family:Klavika,'H=
+elvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;font-sty=
+le:italic;font-weight:700;mso-table-lspace:0;mso-table-rspace:0;padding:5px=
+ 0"align=3Dcenter>952</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#6f=
+767b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!import=
+ant;font-size:14px;font-style:italic;font-weight:700;mso-table-lspace:0;mso=
+-table-rspace:0;padding:5px 0"align=3Dcenter>37</td><td bgcolor=3D#f5f5f5 s=
+tyle=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helveti=
+ca,Arial,sans-serif!important;font-size:14px;font-style:italic;font-weight:=
+700;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>3,28=
+3</td></tr><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helveti=
+ca Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td=
+ style=3D"Margin:0;background:#fcfcff;border-bottom-left-radius:15px;color:=
+#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!imp=
+ortant;font-size:14px;font-style:italic;mso-table-lspace:0;mso-table-rspace=
+:0;padding:5px 0"align=3Dcenter>LAST WEEK</td><td bgcolor=3D#f5f5f5 style=
+=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:14px;font-style:italic;font-weight:700;=
+mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>1,688</t=
+d><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#6f767b;font-family:Klavika=
+,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;font-=
+style:italic;font-weight:700;mso-table-lspace:0;mso-table-rspace:0;padding:=
+5px 0"align=3Dcenter>59</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#=
+6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!impo=
+rtant;font-size:14px;font-style:italic;font-weight:700;mso-table-lspace:0;m=
+so-table-rspace:0;padding:5px 0"align=3Dcenter>6,893</td></tr><tr style=3D"=
+Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial=
+,sans-serif!important;font-size:12px;padding:0"><td style=3D"Margin:0;backg=
+round:#fcfcff;border-bottom-left-radius:15px;color:#343a40;font-family:Klav=
+ika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;fo=
+nt-style:italic;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=
+=3Dcenter>THIS MONTH</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#6f7=
+67b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!importa=
+nt;font-size:14px;font-style:italic;font-weight:700;mso-table-lspace:0;mso-=
+table-rspace:0;padding:5px 0"align=3Dcenter>7,108</td><td bgcolor=3D#f5f5f5=
+ style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helve=
+tica,Arial,sans-serif!important;font-size:14px;font-style:italic;font-weigh=
+t:700;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>25=
+5</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#6f767b;font-family:Kla=
+vika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;f=
+ont-style:italic;font-weight:700;mso-table-lspace:0;mso-table-rspace:0;padd=
+ing:5px 0"align=3Dcenter>29,687</td></tr><tr style=3D"Margin:0;color:#343a4=
+0;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important=
+;font-size:12px;padding:0"><td style=3D"Margin:0;background:#fcfcff;border-=
+bottom-left-radius:15px;color:#343a40;font-family:Klavika,'Helvetica Neue',=
+Helvetica,Arial,sans-serif!important;font-size:14px;font-style:italic;mso-t=
+able-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>LAST MONTH</t=
+d><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#6f767b;font-family:Klavika=
+,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;font-=
+style:italic;font-weight:700;mso-table-lspace:0;mso-table-rspace:0;padding:=
+5px 0"align=3Dcenter>6,322</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;colo=
+r:#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!i=
+mportant;font-size:14px;font-style:italic;font-weight:700;mso-table-lspace:=
+0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>238</td><td bgcolor=3D#f5=
+f5f5 style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',H=
+elvetica,Arial,sans-serif!important;font-size:14px;font-style:italic;font-w=
+eight:700;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcente=
+r>26,788</td></tr><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'=
+Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding=
+:0"><td style=3D"Margin:0;background:#fcfcff;border-bottom-left-radius:15px=
+;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-se=
+rif!important;font-size:14px;font-style:italic;mso-table-lspace:0;mso-table=
+-rspace:0;padding:5px 0"align=3Dcenter>THIS YEAR</td><td bgcolor=3D#f5f5f5 =
+style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helvet=
+ica,Arial,sans-serif!important;font-size:14px;font-style:italic;font-weight=
+:700;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>7,1=
+08</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#6f767b;font-family:Kl=
+avika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;=
+font-style:italic;font-weight:700;mso-table-lspace:0;mso-table-rspace:0;pad=
+ding:5px 0"align=3Dcenter>255</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;c=
+olor:#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-seri=
+f!important;font-size:14px;font-style:italic;font-weight:700;mso-table-lspa=
+ce:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>29,687</td></tr><tr st=
+yle=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetic=
+a,Arial,sans-serif!important;font-size:12px;padding:0"><td style=3D"Margin:=
+0;background:#fcfcff;border-bottom-left-radius:15px;color:#343a40;font-fami=
+ly:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:=
+14px;font-style:italic;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"=
+align=3Dcenter>LAST YEAR</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:=
+#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!imp=
+ortant;font-size:14px;font-style:italic;font-weight:700;mso-table-lspace:0;=
+mso-table-rspace:0;padding:5px 0"align=3Dcenter>18,858</td><td bgcolor=3D#f=
+5f5f5 style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',=
+Helvetica,Arial,sans-serif!important;font-size:14px;font-style:italic;font-=
+weight:700;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcent=
+er>680</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#6f767b;font-famil=
+y:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:1=
+4px;font-style:italic;font-weight:700;mso-table-lspace:0;mso-table-rspace:0=
+;padding:5px 0"align=3Dcenter>81,474</td></tr><tr style=3D"Margin:0;color:#=
+343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!impo=
+rtant;font-size:12px;padding:0"><td style=3D"Margin:0;background:#fcfcff;bo=
+rder-bottom-left-radius:15px;color:#343a40;font-family:Klavika,'Helvetica N=
+eue',Helvetica,Arial,sans-serif!important;font-size:14px;font-style:italic;=
+mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>ALL TIME=
+</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#6f767b;font-family:Klav=
+ika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;fo=
+nt-style:italic;font-weight:700;mso-table-lspace:0;mso-table-rspace:0;paddi=
+ng:5px 0"align=3Dcenter>25,966</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;=
+color:#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-ser=
+if!important;font-size:14px;font-style:italic;font-weight:700;mso-table-lsp=
+ace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>935</td><td bgcolor=
+=3D#f5f5f5 style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica N=
+eue',Helvetica,Arial,sans-serif!important;font-size:14px;font-style:italic;=
+font-weight:700;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=
+=3Dcenter>111,161</td></tr></tbody></table><table align=3Dcenter class=3Dma=
+rgin-table style=3D"Margin:0;border-collapse:separate;border-spacing:0;colo=
+r:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!i=
+mportant;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;tex=
+t-decoration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0 widt=
+h=3D100%><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvet=
+ica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><t=
+r style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helv=
+etica,Arial,sans-serif!important;font-size:12px;padding:0"><td style=3D"Mar=
+gin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sa=
+ns-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;pad=
+ding:0"height=3D30></td></tr></tbody></table><table class=3D"inner-table su=
+mmary"align=3Dcenter width=3D100% border=3D0 cellspacing=3D0 cellpadding=3D=
+0 style=3D"Margin:0 auto;border:0 solid #fefefe;border-collapse:separate;bo=
+rder-radius:25px;border-spacing:0;color:#343a40;font-family:Klavika,'Helvet=
+ica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;max-width:630=
+px;mso-table-lspace:0;mso-table-rspace:0;padding:10px;text-decoration:none!=
+important"><thead class=3Dsummary-table-headers style=3D"Margin:0;color:#34=
+3a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!import=
+ant;font-size:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;font-fami=
+ly:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:=
+12px;padding:0"><th style=3D"Margin:0;background:#fefefe;color:#343a40;font=
+-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-=
+size:12px;padding:5px"align=3Dcenter></th><th style=3D"Margin:0;background:=
+#fcfcff;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,=
+sans-serif!important;font-size:12px;padding:5px"align=3Dcenter><img class=
+=3Dsummary-th-image src=3Dhttps://s3.amazonaws.com/otf-email-images-dev/en-=
+US/class-performance-results/images/emailV2/v3/png/35x35/treadmill.png alt=
+=3Dtreadmill style=3D"Margin:0;border:0;color:#343a40;font-family:Klavika,'=
+Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;height:=
+35px;padding:0;width:35px"width=3D35><p style=3D"Margin:0;color:#6f767b;fon=
+t-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font=
+-size:12px;padding:0;text-decoration:none!important">TREADMILL<span class=
+=3Dtext-gray style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica=
+ Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0">&nbsp=
+;(miles)</span></p></th></tr></thead><tbody class=3Dsummary-table style=3D"=
+Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial=
+,sans-serif!important;font-size:12px;padding:0"><tr style=3D"Margin:0;color=
+:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!im=
+portant;font-size:12px;padding:0"><td style=3D"Margin:0;background:#fcfcff;=
+border-bottom-left-radius:15px;color:#343a40;font-family:Klavika,'Helvetica=
+ Neue',Helvetica,Arial,sans-serif!important;font-size:14px;font-style:itali=
+c;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>THIS C=
+LASS</td><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#6f767b;font-family:=
+Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14p=
+x;font-style:italic;font-weight:700;mso-table-lspace:0;mso-table-rspace:0;p=
+adding:5px 0"align=3Dcenter>1.77</td></tr><tr style=3D"Margin:0;color:#343a=
+40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!importan=
+t;font-size:12px;padding:0"><td style=3D"Margin:0;background:#fcfcff;border=
+-bottom-left-radius:15px;color:#343a40;font-family:Klavika,'Helvetica Neue'=
+,Helvetica,Arial,sans-serif!important;font-size:14px;font-style:italic;mso-=
+table-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>THIS WEEK</t=
+d><td bgcolor=3D#f5f5f5 style=3D"Margin:0;color:#6f767b;font-family:Klavika=
+,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;font-=
+style:italic;font-weight:700;mso-table-lspace:0;mso-table-rspace:0;padding:=
+5px 0"align=3Dcenter>1.77</td></tr><tr style=3D"Margin:0;color:#343a40;font=
+-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-=
+size:12px;padding:0"><td style=3D"Margin:0;background:#fcfcff;border-bottom=
+-left-radius:15px;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvet=
+ica,Arial,sans-serif!important;font-size:14px;font-style:italic;mso-table-l=
+space:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>LAST WEEK</td><td b=
+gcolor=3D#f5f5f5 style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helve=
+tica Neue',Helvetica,Arial,sans-serif!important;font-size:14px;font-style:i=
+talic;font-weight:700;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"a=
+lign=3Dcenter>3.56</td></tr><tr style=3D"Margin:0;color:#343a40;font-family=
+:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12=
+px;padding:0"><td style=3D"Margin:0;background:#fcfcff;border-bottom-left-r=
+adius:15px;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Ari=
+al,sans-serif!important;font-size:14px;font-style:italic;mso-table-lspace:0=
+;mso-table-rspace:0;padding:5px 0"align=3Dcenter>THIS MONTH</td><td bgcolor=
+=3D#f5f5f5 style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica N=
+eue',Helvetica,Arial,sans-serif!important;font-size:14px;font-style:italic;=
+font-weight:700;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=
+=3Dcenter>17.69</td></tr><tr style=3D"Margin:0;color:#343a40;font-family:Kl=
+avika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;=
+padding:0"><td style=3D"Margin:0;background:#fcfcff;border-bottom-left-radi=
+us:15px;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,=
+sans-serif!important;font-size:14px;font-style:italic;mso-table-lspace:0;ms=
+o-table-rspace:0;padding:5px 0"align=3Dcenter>LAST MONTH</td><td bgcolor=3D=
+#f5f5f5 style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue=
+',Helvetica,Arial,sans-serif!important;font-size:14px;font-style:italic;fon=
+t-weight:700;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dce=
+nter>14.62</td></tr><tr style=3D"Margin:0;color:#343a40;font-family:Klavika=
+,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;paddi=
+ng:0"><td style=3D"Margin:0;background:#fcfcff;border-bottom-left-radius:15=
+px;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-=
+serif!important;font-size:14px;font-style:italic;mso-table-lspace:0;mso-tab=
+le-rspace:0;padding:5px 0"align=3Dcenter>THIS YEAR</td><td bgcolor=3D#f5f5f=
+5 style=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helv=
+etica,Arial,sans-serif!important;font-size:14px;font-style:italic;font-weig=
+ht:700;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>1=
+7.69</td></tr><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helv=
+etica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0">=
+<td style=3D"Margin:0;background:#fcfcff;border-bottom-left-radius:15px;col=
+or:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!=
+important;font-size:14px;font-style:italic;mso-table-lspace:0;mso-table-rsp=
+ace:0;padding:5px 0"align=3Dcenter>LAST YEAR</td><td bgcolor=3D#f5f5f5 styl=
+e=3D"Margin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,=
+Arial,sans-serif!important;font-size:14px;font-style:italic;font-weight:700=
+;mso-table-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>42.12</=
+td></tr><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica =
+Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td st=
+yle=3D"Margin:0;background:#fcfcff;border-bottom-left-radius:15px;color:#34=
+3a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!import=
+ant;font-size:14px;font-style:italic;mso-table-lspace:0;mso-table-rspace:0;=
+padding:5px 0"align=3Dcenter>ALL TIME</td><td bgcolor=3D#f5f5f5 style=3D"Ma=
+rgin:0;color:#6f767b;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,s=
+ans-serif!important;font-size:14px;font-style:italic;font-weight:700;mso-ta=
+ble-lspace:0;mso-table-rspace:0;padding:5px 0"align=3Dcenter>59.81</td></tr=
+></tbody></table><table align=3Dcenter class=3Dmargin-table style=3D"Margin=
+:0;border-collapse:separate;border-spacing:0;color:#343a40;font-family:Klav=
+ika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;ms=
+o-table-lspace:0;mso-table-rspace:0;padding:0;text-decoration:none!importan=
+t"border=3D0 cellpadding=3D0 cellspacing=3D0 width=3D100%><tbody style=3D"M=
+argin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,=
+sans-serif!important;font-size:12px;padding:0"><tr style=3D"Margin:0;color:=
+#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!imp=
+ortant;font-size:12px;padding:0"><td style=3D"Margin:0;color:#343a40;font-f=
+amily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-si=
+ze:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"height=3D20></td></=
+tr></tbody></table><table class=3D"full-width-table ref-contact bg-gradient=
+-red-orange gradient"bgcolor=3D#ef8132 align=3Dcenter width=3D100% border=
+=3D0 cellspacing=3D0 cellpadding=3D0 style=3D"Margin:0 auto;background:line=
+ar-gradient(to right,#eb3724,#ef8132);border-collapse:separate;border-spaci=
+ng:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,san=
+s-serif!important;font-size:12px;max-width:670px;mso-table-lspace:0;mso-tab=
+le-rspace:0;padding:0;text-decoration:none!important"><tbody class=3Dcontac=
+t-banner style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neu=
+e',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr class=
+=3Dcol-2 style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neu=
+e',Helvetica,Arial,sans-serif!important;font-size:0;padding:5px 0 10px 0"al=
+ign=3Dcenter><td class=3Dsection style=3D"Margin:0;color:#343a40;display:bl=
+ock;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!importa=
+nt;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0 0 15px 8p=
+x;padding-top:5px"width=3D"100% !important"valign=3Dtop><table style=3D"Mar=
+gin:0;border-collapse:separate;border-spacing:0;color:#343a40;font-family:K=
+lavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px=
+;mso-table-lspace:0;mso-table-rspace:0;padding:0;text-decoration:none!impor=
+tant"border=3D0 cellpadding=3D0 cellspacing=3D0><tbody style=3D"Margin:0;co=
+lor:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif=
+!important;font-size:12px;padding:0"><tr style=3D"Margin:0;color:#343a40;fo=
+nt-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fon=
+t-size:12px;padding:0"><td style=3D"Margin:0;color:#343a40;font-family:Klav=
+ika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;ms=
+o-table-lspace:0;mso-table-rspace:0;padding:0"><table height=3D84px width=
+=3D100% border=3D0 cellspacing=3D0 cellpadding=3D0 style=3D"Margin:0;border=
+-collapse:separate;border-spacing:0;color:#343a40;font-family:Klavika,'Helv=
+etica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-l=
+space:0;mso-table-rspace:0;padding:0;text-decoration:none!important"><tbody=
+ style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helve=
+tica,Arial,sans-serif!important;font-size:12px;padding:0"><tr style=3D"Marg=
+in:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,san=
+s-serif!important;font-size:12px;padding:0"><td align=3Dcenter style=3D"Mar=
+gin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sa=
+ns-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;pad=
+ding:0"><p class=3D"h3 text-light text-white upper-case"style=3D"Margin:0;c=
+olor:#fefefe;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-seri=
+f!important;font-size:12px;font-weight:400;padding:0;text-decoration:none!i=
+mportant;text-transform:uppercase">Know Someone who will<span class=3D"h3 t=
+ext-bold text-white upper-case"style=3D"Margin:0;color:#fefefe;font-family:=
+Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12p=
+x;font-weight:600;padding:0;text-transform:uppercase">&nbsp;Love Us?</span>=
+</p></td></tr><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helv=
+etica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0">=
+<td style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',He=
+lvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-ta=
+ble-rspace:0;padding:0"align=3Dcenter valign=3Dbottom><table border=3D0 cel=
+lspacing=3D0 cellpadding=3D0 style=3D"Margin:0;border-collapse:separate;bor=
+der-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,=
+Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspa=
+ce:0;padding:0;text-decoration:none!important"><tr style=3D"Margin:0;color:=
+#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!imp=
+ortant;font-size:12px;padding:0"><td align=3Dcenter style=3D"Margin:0;borde=
+r:1px solid #fefefe;border-radius:3px;color:#343a40;font-family:Klavika,'He=
+lvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table=
+-lspace:0;mso-table-rspace:0;padding:10px 50px"bgcolor=3Dtransparent valign=
+=3Dmiddle><a href=3Dhttps://c85i0w32.r.us-east-1.awstrack.me/L0/https:%2F%2=
+Ffreeclass.orangetheoryfitness.com%2Fsharetheburn%2F/1/0100017eb233d010-27b=
+dca1c-fdc9-4f43-adb0-372b766e356b-000000/48YtcKcom16lmCotBP_C1pGl4SI=3D255 =
+target=3D_blank class=3D"btn upper-case"style=3D"Margin:0;color:#fff;font-f=
+amily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-si=
+ze:13px;padding:0;text-decoration:none!important;text-transform:uppercase;v=
+ertical-align:middle">Refer a Friend</a></td></tr></table></td></tr></tbody=
+></table></td></tr></tbody></table></td><td class=3Dsection style=3D"Margin=
+:0;color:#343a40;display:block;font-family:Klavika,'Helvetica Neue',Helveti=
+ca,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-r=
+space:0;padding:5px 8px;padding-top:5px"width=3D"100% !important"valign=3Dt=
+op><table style=3D"Margin:0;border-collapse:separate;border-spacing:0;color=
+:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!im=
+portant;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0;text=
+-decoration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0><tbod=
+y style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helv=
+etica,Arial,sans-serif!important;font-size:12px;padding:0"><tr style=3D"Mar=
+gin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sa=
+ns-serif!important;font-size:12px;padding:0"><td style=3D"Margin:0;color:#3=
+43a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!impor=
+tant;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"><table=
+ height=3D84px style=3D"Margin:0;border-collapse:separate;border-spacing:0;=
+color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-ser=
+if!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0=
+;text-decoration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D0>=
+<tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue'=
+,Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr style=
+=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:12px;padding:0"><td align=3Dcenter styl=
+e=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,=
+Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspa=
+ce:0;padding:0"><p class=3D"h3 text-white text-bold upper-case"style=3D"Mar=
+gin:0;color:#fefefe;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sa=
+ns-serif!important;font-size:12px;font-weight:600;padding:0;text-decoration=
+:none!important;text-transform:uppercase">Want more orangetheory fitness?</=
+p><p class=3D"h3 text-white text-light upeer-case"style=3D"Margin:0;color:#=
+fefefe;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!impo=
+rtant;font-size:12px;font-weight:400;padding:0;text-decoration:none!importa=
+nt">Connect with us on social media!</p></td></tr><tr style=3D"Margin:0;col=
+or:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!=
+important;font-size:12px;padding:0"><td style=3D"Margin:0;color:#343a40;fon=
+t-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font=
+-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"align=3Dcenter v=
+align=3Dbottom><table style=3D"Margin:0;border-collapse:separate;border-spa=
+cing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,s=
+ans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;pa=
+dding:0;text-decoration:none!important"border=3D0 cellpadding=3D0 cellspaci=
+ng=3D0><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetic=
+a Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr =
+style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvet=
+ica,Arial,sans-serif!important;font-size:12px;padding:0"><td class=3Dref-so=
+cial style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',H=
+elvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-t=
+able-rspace:0;padding:5px 10px 0 0"><a href=3Dhttps://c85i0w32.r.us-east-1.=
+awstrack.me/L0/https:%2F%2Fwww.facebook.com%2FOrangeTheoryFitness%2F/1/0100=
+017eb233d010-27bdca1c-fdc9-4f43-adb0-372b766e356b-000000/VU87yLmUiSw1nQfeEB=
+mZEdd2oyk=3D255 target=3D_blank style=3D"Margin:0;color:#343a40;font-family=
+:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12=
+px;padding:0;text-decoration:none!important"><img class=3Dref-img src=3Dhtt=
+ps://s3.amazonaws.com/otf-email-images-dev/en-US/class-performance-results/=
+images/emailV2/social/facebook.png alt=3D"[object Object]"style=3D"Margin:0=
+;border:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Aria=
+l,sans-serif!important;font-size:12px;padding:0;width:20px"width=3D20></a><=
+/td><td class=3Dref-social style=3D"Margin:0;color:#343a40;font-family:Klav=
+ika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;ms=
+o-table-lspace:0;mso-table-rspace:0;padding:5px 10px 0 0"><a href=3Dhttps:/=
+/c85i0w32.r.us-east-1.awstrack.me/L0/https:%2F%2Fwww.instagram.com%2Forange=
+theory%2F/1/0100017eb233d010-27bdca1c-fdc9-4f43-adb0-372b766e356b-000000/on=
+hlYrd4tMlRbbQCXANZPrgSuHM=3D255 target=3D_blank style=3D"Margin:0;color:#34=
+3a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!import=
+ant;font-size:12px;padding:0;text-decoration:none!important"><img class=3Dr=
+ef-img src=3Dhttps://s3.amazonaws.com/otf-email-images-dev/en-US/class-perf=
+ormance-results/images/emailV2/social/instagram.png alt=3D"[object Object]"=
+style=3D"Margin:0;border:0;color:#343a40;font-family:Klavika,'Helvetica Neu=
+e',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0;width:20px=
+"width=3D20></a></td><td class=3Dref-social style=3D"Margin:0;color:#343a40=
+;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;=
+font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:5px 10px 0 0">=
+<a href=3Dhttps://c85i0w32.r.us-east-1.awstrack.me/L0/https:%2F%2Ftwitter.c=
+om%2Forangetheory%2F/1/0100017eb233d010-27bdca1c-fdc9-4f43-adb0-372b766e356=
+b-000000/jceLYjiK4QTmBJtXZJ07F2LpoDg=3D255 target=3D_blank style=3D"Margin:=
+0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-s=
+erif!important;font-size:12px;padding:0;text-decoration:none!important"><im=
+g class=3Dref-img src=3Dhttps://s3.amazonaws.com/otf-email-images-dev/en-US=
+/class-performance-results/images/emailV2/social/twitter.png alt=3D"[object=
+ Object]"style=3D"Margin:0;border:0;color:#343a40;font-family:Klavika,'Helv=
+etica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0;w=
+idth:20px"width=3D20></a></td><td class=3Dref-social style=3D"Margin:0;colo=
+r:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!i=
+mportant;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:5px 1=
+0px 0 0"><a href=3Dhttps://c85i0w32.r.us-east-1.awstrack.me/L0/https:%2F%2F=
+www.pinterest.com%2Fotheoryfitness%2F/1/0100017eb233d010-27bdca1c-fdc9-4f43=
+-adb0-372b766e356b-000000/7-aAc1dqjEFGF7Rb1Q2Wc2Jg8zg=3D255 target=3D_blank=
+ style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helve=
+tica,Arial,sans-serif!important;font-size:12px;padding:0;text-decoration:no=
+ne!important"><img class=3Dref-img src=3Dhttps://s3.amazonaws.com/otf-email=
+-images-dev/en-US/class-performance-results/images/emailV2/social/pinterest=
+.png alt=3D"[object Object]"style=3D"Margin:0;border:0;color:#343a40;font-f=
+amily:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-si=
+ze:12px;padding:0;width:20px"width=3D20></a></td><td class=3Dref-social sty=
+le=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica=
+,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rsp=
+ace:0;padding:5px 10px 0 0"><a href=3Dhttps://c85i0w32.r.us-east-1.awstrack=
+.me/L0/https:%2F%2Fwww.youtube.com%2Fuser%2FOtheoryfitness/1/0100017eb233d0=
+10-27bdca1c-fdc9-4f43-adb0-372b766e356b-000000/YhgDz6zmTcwn1NGfJkXeqojYt4A=
+=3D255 target=3D_blank style=3D"Margin:0;color:#343a40;font-family:Klavika,=
+'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;paddin=
+g:0;text-decoration:none!important"><img class=3Dref-img src=3Dhttps://s3.a=
+mazonaws.com/otf-email-images-dev/en-US/class-performance-results/images/em=
+ailV2/social/youtube.png alt=3D"[object Object]"style=3D"Margin:0;border:0;=
+color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-ser=
+if!important;font-size:12px;padding:0;width:20px"width=3D20></a></td></tr><=
+/tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></t=
+r></tbody></table><table align=3Dcenter class=3Dmargin-table style=3D"Margi=
+n:0;border-collapse:separate;border-spacing:0;color:#343a40;font-family:Kla=
+vika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;m=
+so-table-lspace:0;mso-table-rspace:0;padding:0;text-decoration:none!importa=
+nt"border=3D0 cellpadding=3D0 cellspacing=3D0 width=3D100%><tbody style=3D"=
+Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial=
+,sans-serif!important;font-size:12px;padding:0"><tr style=3D"Margin:0;color=
+:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!im=
+portant;font-size:12px;padding:0"><td style=3D"Margin:0;color:#343a40;font-=
+family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-s=
+ize:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0"height=3D20></td><=
+/tr></tbody></table><table class=3D"full-width-table footer"align=3Dcenter =
+width=3D100% style=3D"Margin:0 auto;border-collapse:separate;border-spacing=
+:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-=
+serif!important;font-size:12px;max-width:670px;mso-table-lspace:0;mso-table=
+-rspace:0;padding:0;text-decoration:none!important"border=3D0 cellpadding=
+=3D0 cellspacing=3D0><tbody style=3D"Margin:0;color:#343a40;font-family:Kla=
+vika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;p=
+adding:0"><tr class=3Dcol-3 style=3D"Margin:0;color:#343a40;font-family:Kla=
+vika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:0;padd=
+ing:5px 0 10px 0"align=3Dcenter><td class=3Dsection align=3Dcenter style=3D=
+"Margin:0;color:#343a40;display:block;font-family:Klavika,'Helvetica Neue',=
+Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-=
+table-rspace:0;padding:0 5px;padding-left:20px"width=3D"100% !important"><t=
+able align=3Dcenter style=3D"Margin:0;border-collapse:separate;border-spaci=
+ng:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,san=
+s-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padd=
+ing:0;text-decoration:none!important"border=3D0 cellpadding=3D0 cellspacing=
+=3D0><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica =
+Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr st=
+yle=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetic=
+a,Arial,sans-serif!important;font-size:12px;padding:0"><td align=3Dcenter s=
+tyle=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helveti=
+ca,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-r=
+space:0;padding:0"><p style=3D"Margin:0;color:#343a40;font-family:Klavika,'=
+Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding=
+:0;text-decoration:none!important">=C2=A9 Copyright 2022<a href=3D"https://=
+c85i0w32.r.us-east-1.awstrack.me/L0/https:%2F%2Fapi.orangetheory.co%2Fmembe=
+r%2Fmailings%2Funsubscribe%3Fe=3DU2FsdGVkX19su%252B6wN98xiz1hViXU%252FhK8%2=
+52BBL92uuPIpydrh1PxuMjuBo0PyT8u2R7/1/0100017eb233d010-27bdca1c-fdc9-4f43-ad=
+b0-372b766e356b-000000/wuh-q6ql4vmZk6QXeVXTmdWEOGQ=3D255"target=3D_blank st=
+yle=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetic=
+a,Arial,sans-serif!important;font-size:12px;padding:0;text-decoration:none!=
+important">&nbsp;Unsubscribe</a></p></td></tr></tbody></table></td><td clas=
+s=3Dsection align=3Dcenter style=3D"Margin:0;color:#343a40;display:block;fo=
+nt-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;fon=
+t-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding:0 5px"width=3D"10=
+0% !important"><table align=3Dcenter style=3D"Margin:0;border-collapse:sepa=
+rate;border-spacing:0;color:#343a40;font-family:Klavika,'Helvetica Neue',He=
+lvetica,Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-ta=
+ble-rspace:0;padding:0;text-decoration:none!important"border=3D0 cellpaddin=
+g=3D0 cellspacing=3D0><tbody style=3D"Margin:0;color:#343a40;font-family:Kl=
+avika,'Helvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;=
+padding:0"><tr style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helveti=
+ca Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><td=
+ align=3Dcenter style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvet=
+ica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-table-lsp=
+ace:0;mso-table-rspace:0;padding:0"><img class=3Dimg-footer src=3Dhttps://s=
+3.amazonaws.com/otf-email-images-dev/en-US/class-performance-results/images=
+/emailV2/logo-footer.png alt=3D"orangetheory log"style=3D"Margin:0;border:0=
+;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-se=
+rif!important;font-size:12px;height:auto;max-width:300px;padding:0;width:14=
+0px"width=3D140></td></tr></tbody></table></td><td class=3Dsection align=3D=
+center style=3D"Margin:0;color:#343a40;display:block;font-family:Klavika,'H=
+elvetica Neue',Helvetica,Arial,sans-serif!important;font-size:12px;mso-tabl=
+e-lspace:0;mso-table-rspace:0;padding:0 5px"width=3D"100% !important"><tabl=
+e align=3Dcenter style=3D"Margin:0;border-collapse:separate;border-spacing:=
+0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-s=
+erif!important;font-size:12px;mso-table-lspace:0;mso-table-rspace:0;padding=
+:0;text-decoration:none!important"border=3D0 cellpadding=3D0 cellspacing=3D=
+0><tbody style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neu=
+e',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0"><tr style=
+=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,A=
+rial,sans-serif!important;font-size:12px;padding:0"><td align=3Dcenter styl=
+e=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,=
+Arial,sans-serif!important;font-size:12px;mso-table-lspace:0;mso-table-rspa=
+ce:0;padding:0"><p class=3D"h2 upper-case wordbreak"style=3D"Margin:0;color=
+:#343a40;font-family:Klavika,'Helvetica Neue',Helvetica,Arial,sans-serif!im=
+portant;font-size:14px;padding:0;text-decoration:none!important;text-transf=
+orm:uppercase;word-break:break-all"><a href=3Dhttps://c85i0w32.r.us-east-1.=
+awstrack.me/L0/https:%2F%2Fwww.orangetheory.com%2F/1/0100017eb233d010-27bdc=
+a1c-fdc9-4f43-adb0-372b766e356b-000000/UMNMZl1LM6WzzvQnkPcQN73nutA=3D255 ta=
+rget=3D_blank style=3D"Margin:0;color:#343a40;font-family:Klavika,'Helvetic=
+a Neue',Helvetica,Arial,sans-serif!important;font-size:12px;padding:0;text-=
+decoration:none!important">orangetheory.com</a></p></td></tr></tbody></tabl=
+e></td></tr></tbody></table><img alt=3D"" src=3D"http://c85i0w32.r.us-east-=
+1.awstrack.me/I0/0100017eb233d010-27bdca1c-fdc9-4f43-adb0-372b766e356b-0000=
+00/OgkuQ7I8LpaPOQ4TrhoRtP4Xllo=3D255" style=3D"display: none; width: 1px; h=
+eight: 1px;">
+</body></html>
+--OMIB02gk--
+
+--MsHvtOPH--

@@ -1,0 +1,103 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tokens   OAuthToken[]
+  workouts Workout[]
+}
+
+model OAuthToken {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  accessToken  String // Encrypted
+  refreshToken String // Encrypted
+  expiresAt    DateTime
+  scope        String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId])
+}
+
+model Workout {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Email metadata
+  gmailMessageId String   @unique
+  emailDate      DateTime
+
+  // Class metadata
+  classTime       String? // e.g., "10:45 AM"
+  studioLocation  String? // e.g., "New Albany, OH"
+  classInstructor String? // e.g., "Lamara Ambler"
+
+  // Workout metrics
+  caloriesBurned Int?
+  splatPoints    Int?
+  avgHeartRate   Int?
+  peakHeartRate  Int?
+  steps          Int?
+
+  // Treadmill data
+  treadmillDistance   Float? // miles
+  treadmillTime       Int? // seconds
+  treadmillAvgSpeed   Float? // mph
+  treadmillMaxSpeed   Float? // mph
+  treadmillAvgIncline Float? // percent
+  treadmillMaxIncline Float? // percent
+  treadmillAvgPace    Int? // seconds per mile
+  treadmillFastestPace Int? // seconds per mile
+  treadmillElevation  Float? // feet
+
+  // Rowing data (if present)
+  rowingDistance     Float? // meters
+  rowingTime         Int? // seconds
+  rowingAvgWattage   Int? // watts
+  rowingMaxWattage   Int? // watts
+  rowingAvgSpeed     Float? // km/h
+  rowingMaxSpeed     Float? // km/h
+  rowing500mSplit    Int? // seconds
+  rowingMax500mSplit Int? // seconds (fastest/best)
+  rowingAvgStrokeRate Float? // strokes per minute
+
+  // Additional metrics
+  activeMinutes       Int?
+  minutesInGrayZone   Int?
+  minutesInBlueZone   Int?
+  minutesInGreenZone  Int?
+  minutesInOrangeZone Int?
+  minutesInRedZone    Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Raw data for re-parsing (at end for readability)
+  rawHtml String
+
+  @@index([userId, emailDate])
+}
+
+model ScrapedContent {
+  id        Int      @id @default(autoincrement())
+  title     String?
+  content   String?
+  url       String
+  scrapedAt DateTime @default(now())
+}

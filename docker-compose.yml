@@ -1,0 +1,63 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: otf-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: otf_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    networks:
+      - otf-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d otf_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web-app:
+    build: ./web-app
+    container_name: otf-web-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@postgres:5432/otf_db
+      WATCHPACK_POLLING: "true"
+    env_file:
+      - ./web-app/.env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - type: bind
+        source: ./web-app
+        target: /app
+        consistency: cached
+      - /app/node_modules
+      - /app/.next
+    command: sh -c "npm install && npx prisma generate && npx prisma migrate deploy && npm run dev"
+    networks:
+      - otf-network
+
+  scraper:
+    build: ./scraper
+    container_name: otf-scraper
+    environment:
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@postgres:5432/otf_db
+      TARGET_URL: https://example.com
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - otf-network
+    profiles:
+      - manual
+
+networks:
+  otf-network:
+    driver: bridge
