@@ -17,6 +17,18 @@ interface SyncResult {
 export default function Dashboard() {
 	const [syncing, setSyncing] = useState(false);
 	const [syncResult, setSyncResult] = useState<SyncResult | null>(null);
+	const [exporting, setExporting] = useState(false);
+	const [syncingReddit, setSyncingReddit] = useState(false);
+	const [redditSyncResult, setRedditSyncResult] = useState<{
+		success: boolean;
+		newPosts?: number;
+		updatedPosts?: number;
+		skippedPosts?: number;
+		errors?: number;
+		totalProcessed?: number;
+		error?: string;
+		details?: string;
+	} | null>(null);
 
 	async function handleSync() {
 		setSyncing(true);
@@ -56,6 +68,60 @@ export default function Dashboard() {
 		}
 	}
 
+	async function handleExport() {
+		setExporting(true);
+		try {
+			const response = await fetch("/api/workouts/export");
+			if (!response.ok) {
+				throw new Error("Export failed");
+			}
+			const blob = await response.blob();
+			const url = window.URL.createObjectURL(blob);
+			const a = document.createElement("a");
+			a.href = url;
+			a.download = `otf-workouts-${new Date().toISOString().split("T")[0]}.csv`;
+			document.body.appendChild(a);
+			a.click();
+			window.URL.revokeObjectURL(url);
+			a.remove();
+		} catch (error) {
+			console.error("Export failed:", error);
+		} finally {
+			setExporting(false);
+		}
+	}
+
+	async function handleRedditSync() {
+		setSyncingReddit(true);
+		setRedditSyncResult(null);
+
+		try {
+			const response = await fetch("/api/reddit/sync", {
+				method: "POST",
+			});
+
+			const data = await response.json();
+
+			if (!response.ok) {
+				setRedditSyncResult({
+					success: false,
+					error: data.error,
+					details: data.details,
+				});
+			} else {
+				setRedditSyncResult(data);
+			}
+		} catch (error) {
+			setRedditSyncResult({
+				success: false,
+				error: "Failed to sync Reddit posts",
+				details: error instanceof Error ? error.message : "Unknown error",
+			});
+		} finally {
+			setSyncingReddit(false);
+		}
+	}
+
 	return (
 		<div className="min-h-screen p-8">
 			<div className="max-w-4xl mx-auto space-y-8">
@@ -72,14 +138,34 @@ export default function Dashboard() {
 				</div>
 
 				<div className="space-y-4">
-					<Button
-						onClick={handleSync}
-						disabled={syncing}
-						size="lg"
-						className="w-full sm:w-auto"
-					>
-						{syncing ? "Syncing..." : "Sync Workouts from Gmail"}
-					</Button>
+					<div className="flex flex-col sm:flex-row gap-4">
+						<Button
+							onClick={handleSync}
+							disabled={syncing}
+							size="lg"
+							className="w-full sm:w-auto"
+						>
+							{syncing ? "Syncing..." : "Sync Workouts from Gmail"}
+						</Button>
+						<Button
+							onClick={handleExport}
+							disabled={exporting}
+							size="lg"
+							variant="outline"
+							className="w-full sm:w-auto"
+						>
+							{exporting ? "Exporting..." : "Download CSV"}
+						</Button>
+						<Button
+							onClick={handleRedditSync}
+							disabled={syncingReddit}
+							size="lg"
+							variant="secondary"
+							className="w-full sm:w-auto"
+						>
+							{syncingReddit ? "Syncing Reddit..." : "Sync Reddit Posts"}
+						</Button>
+					</div>
 
 					{syncResult && (
 						<div
@@ -143,6 +229,72 @@ export default function Dashboard() {
 									{syncResult.details && (
 										<p className="text-sm text-red-600 dark:text-red-400">
 											Details: {syncResult.details}
+										</p>
+									)}
+								</div>
+							)}
+						</div>
+					)}
+
+					{redditSyncResult && (
+						<div
+							className={`p-6 rounded-lg border ${
+								redditSyncResult.success
+									? "bg-green-50 dark:bg-green-950 border-green-200 dark:border-green-800"
+									: "bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-800"
+							}`}
+						>
+							{redditSyncResult.success ? (
+								<div className="space-y-2">
+									<h3 className="text-lg font-semibold text-green-900 dark:text-green-100">
+										Reddit Sync Completed
+									</h3>
+									<div className="grid grid-cols-2 gap-4 text-sm">
+										<div>
+											<p className="text-green-700 dark:text-green-300 font-medium">
+												New Posts
+											</p>
+											<p className="text-2xl font-bold text-green-900 dark:text-green-100">
+												{redditSyncResult.newPosts}
+											</p>
+										</div>
+										<div>
+											<p className="text-green-700 dark:text-green-300 font-medium">
+												Updated
+											</p>
+											<p className="text-2xl font-bold text-green-900 dark:text-green-100">
+												{redditSyncResult.updatedPosts}
+											</p>
+										</div>
+										<div>
+											<p className="text-green-700 dark:text-green-300 font-medium">
+												Skipped
+											</p>
+											<p className="text-2xl font-bold text-green-900 dark:text-green-100">
+												{redditSyncResult.skippedPosts}
+											</p>
+										</div>
+										<div>
+											<p className="text-green-700 dark:text-green-300 font-medium">
+												Total Processed
+											</p>
+											<p className="text-2xl font-bold text-green-900 dark:text-green-100">
+												{redditSyncResult.totalProcessed}
+											</p>
+										</div>
+									</div>
+								</div>
+							) : (
+								<div className="space-y-2">
+									<h3 className="text-lg font-semibold text-red-900 dark:text-red-100">
+										Reddit Sync Failed
+									</h3>
+									<p className="text-red-700 dark:text-red-300">
+										{redditSyncResult.error}
+									</p>
+									{redditSyncResult.details && (
+										<p className="text-sm text-red-600 dark:text-red-400">
+											Details: {redditSyncResult.details}
 										</p>
 									)}
 								</div>

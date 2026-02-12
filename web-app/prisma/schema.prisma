@@ -1,3 +1,6 @@
+// To migrate after schema change: DATABASE_URL=postgresql://cokingtins1:drpeppa1212@localhost:5432/otf_db npx prisma migrate dev --name…
+// To generate new prisma client:  DATABASE_URL=postgresql://cokingtins1:drpeppa1212@localhost:5432/otf_db npx prisma generate
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -55,25 +58,25 @@ model Workout {
   steps          Int?
 
   // Treadmill data
-  treadmillDistance   Float? // miles
-  treadmillTime       Int? // seconds
-  treadmillAvgSpeed   Float? // mph
-  treadmillMaxSpeed   Float? // mph
-  treadmillAvgIncline Float? // percent
-  treadmillMaxIncline Float? // percent
-  treadmillAvgPace    Int? // seconds per mile
+  treadmillDistance    Float? // miles
+  treadmillTime        Int? // seconds
+  treadmillAvgSpeed    Float? // mph
+  treadmillMaxSpeed    Float? // mph
+  treadmillAvgIncline  Float? // percent
+  treadmillMaxIncline  Float? // percent
+  treadmillAvgPace     Int? // seconds per mile
   treadmillFastestPace Int? // seconds per mile
-  treadmillElevation  Float? // feet
+  treadmillElevation   Float? // feet
 
   // Rowing data (if present)
-  rowingDistance     Float? // meters
-  rowingTime         Int? // seconds
-  rowingAvgWattage   Int? // watts
-  rowingMaxWattage   Int? // watts
-  rowingAvgSpeed     Float? // km/h
-  rowingMaxSpeed     Float? // km/h
-  rowing500mSplit    Int? // seconds
-  rowingMax500mSplit Int? // seconds (fastest/best)
+  rowingDistance      Float? // meters
+  rowingTime          Int? // seconds
+  rowingAvgWattage    Int? // watts
+  rowingMaxWattage    Int? // watts
+  rowingAvgSpeed      Float? // km/h
+  rowingMaxSpeed      Float? // km/h
+  rowing500mSplit     Int? // seconds
+  rowingMax500mSplit  Int? // seconds (fastest/best)
   rowingAvgStrokeRate Float? // strokes per minute
 
   // Additional metrics
@@ -91,6 +94,34 @@ model Workout {
   rawHtml String
 
   @@index([userId, emailDate])
+}
+
+model RedditPost {
+  id                      String   @id @default(cuid())
+  redditId                String   @unique
+  permalink               String
+  title                   String
+  author                  String
+  subreddit               String
+  createdUtc              DateTime
+  selftext                String?
+  selftextHtml            String?
+  url                     String?
+  score                   Int?
+  upvoteRatio             Float?
+  numComments             Int?
+  flair                   String?
+  rawJson                 String
+  workoutCommentId        String?
+  workoutCommentPermalink String?
+  workoutContent          String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([author, createdUtc])
+  @@index([subreddit, createdUtc])
+  @@index([author, subreddit, createdUtc(sort: Desc)])
 }
 
 model ScrapedContent {
